@@ -1,100 +1,109 @@
-# Challenge 1: GitHub
+# 課題 1: GitHub
 
-⏲️ _Est. time to complete: 45 min._ ⏲️
+⏲️ _完了までの時間: 45 min._ ⏲️
 
-## Here is what you will learn 🎯
+## このパートで学ぶこと 🎯
 
-In this challenge you will learn how to:
+- GitHubでサインアップしてアカウントを作成する方法
+- GitHubのプロフィールを編集して写真をアップロードする方法
+- リポジトリをフォークする方法
+- 応用：独自のGitHubキャラクターを作る方法
 
-- How to sign up at GitHub and create an account
-- How to edit your profile and upload a picture
-- How to fork a repository
-- Bonus: How to build your own Octocat
+## 目次
 
-## Table Of Contents
+- [課題 1: GitHub](#課題-1-github)
+  - [このパートで学ぶこと 🎯](#このパートで学ぶこと-)
+  - [目次](#目次)
+  - [サインアップしてGitHubアカウントで作成します](#サインアップしてgithubアカウントで作成します)
+  - [GitHub プロフィールの編集](#github-プロフィールの編集)
+    - [プロフィール写真をアップロードして、名前を入力します](#プロフィール写真をアップロードして名前を入力します)
+  - [リポジトリのフォーク](#リポジトリのフォーク)
+  - [CodeSpace の作成](#codespace-の作成)
+  - [応用課題：独自のOctocatを作成しましょう](#応用課題独自のoctocatを作成しましょう)
 
-1. [Sign up and create a GitHub account](#sign-up-and-create-at-github-account)
-2. [Edit your GitHub profile](#edit-your-github-profile)
-3. [Fork repository](#fork-repository)
-4. [Create your codespace](#create-your-codespace)
-5. [Bonus Challenge: Octocat](#bonus-challenge-build-your-own-octocat)
 
-## Sign up and create at GitHub account
+## サインアップしてGitHubアカウントで作成します
 
 <details>
-<summary>What is GitHub?</summary>
+<summary>GitHubとは？</summary>
 
-GitHub is actually two things: **Git** and **Hub**.
+GitHub is  two things: **Git** and **Hub**.
+GitHubを知る上での大事なポイント: **Git** と **Hub**
 
-**Git** is a version control software. It allows developers to work on a specific project at the same time by tracking the changes. If something goes wrong, you can easily undo the changes with Git.
-**Hub** is nothing special in itself, but it represents the "social network" of developers built on top of Git. While GitHub does not own the Git software, it has created a platform that makes it easy to access and collaborate with Git. The groundbreaking feature of GitHub is that it makes it super easy to share/show your code with the world or just store it. You no longer have to worry about where you store your code. Companies have GitHub accounts for the same reason. GitHub provides an easy way to store your code online with built-in version control.
+**Git** はバージョン制御ソフトウェアです。開発者は、変更を追跡することにより、特定のプロジェクトに同時に作業できるようになります。何か問題が発生した場合は、Gitで変更を簡単に元に戻すことができます。
+
+**Hub** はそれ自体が特別なものではありませんが、Gitの上に構築された開発者の「ソーシャルネットワーク」を表しています。GithubはGitソフトウェアを所有していませんが、Gitに簡単にアクセスしてコラボレーションできるプラットフォームを作成しました。GitHubの画期的な機能は、コードを世界と簡単に共有/表示するか、保管することが非常に簡単になることです。コードをどこに保存するかを心配する必要はもうありません。多くの企業はGitHubアカウントを持っています。GitHubは、ビルトインバージョンコントロールでオンラインでコードを簡単に保存する簡単な方法を提供します。
 
 </details>
 
-- Go to the [GitHub website](https://github.com/) and create a GitHub account.
-- Add your email address, password and your desired username
+-  [GitHub Webサイト](https://github.com/) に移動し、GitHubアカウントを作成します。
+- メールアドレス、パスワード、希望するユーザー名を追加します
   ![Startpage of GitHub](./images/light/GithubSignUp.png)
   ![Enter your Email page](./images/light/EnterEmail.png)
-- Type **y** for receiving emails from GitHub about new product updates and announcements. Or **n** for not receiving emails from GitHub about product updates and announcements.
+- 新製品の更新とアナウンスについてGitHubからメールを受信したいときは、 **y** そうでないときは **n** を入力します。
   ![Announcement confirmation page](./images/light/NoAnnouncements.png)
-
-- To **verify** the account, please follow the instructions.
+- アカウントを確認するには、指示に従ってください。
   ![Verification page](./images/light/Verification.png)
 
-You have now successfully created your GitHub account. Now it is time to edit your profile and make it your own.
+これで、GitHubアカウントを正常に作成しました。次は、あなたのプロフィールを編集してあなた自身のものにしましょう。
 
-## Edit your GitHub profile
+## GitHub プロフィールの編集
 
-### Upload a profile picture and insert your name
+### プロフィール写真をアップロードして、名前を入力します
 
-This is the front page of your account. This overview shows everything about your activities on GitHub, such as your contributions to repositories, your own repositories, your achievements and much more.
+これはあなたのアカウントのトップページです。この概要は、リポジトリへの貢献、独自のリポジトリ、成果など、GitHubでのアクティビティに関するすべてを示しています。
 ![Profile page](./images/light/AccountFrontpage.png)
 
 To change or add any of your information, click on your icon in the top right corner and choose **Settings**. If you like, you can upload a profile picture here as well.
+情報を変更または追加したいときは、右上隅の **設定** アイコンをクリックします。ここでもプロフィール写真をアップロードできます。
 
 ![Top right user icon options popup](./images/light/Settings.png)
 
 ![Profile page](./images/light/EditProfile.gif)
 
-## Fork Repository
 
-A Fork is a copy of a repository in your own GitHub account. This is extremely handy if you want to freely experiment without making any changes to the original project.
+## リポジトリのフォーク
 
-Now, let's go ahead and fork this repository!
+フォークとは、独自のGitHubアカウントのリポジトリのコピーを作ることです。元のプロジェクトに変更を加えずに自由に試したい場合に便利です。
+
+さあ、先に進み、このリポジトリをフォークしましょう！
 
 ![Highlighted fork button top right](./images/light/ForkTheRepository.png)
 
-## Create your codespace
+## CodeSpace の作成
 
-GitHub Codespaces is a cloud-based development environment that lets you code directly from your browser. It can also be connected to your local Visual Studio Code.
+GitHub CodeSpacesは、ブラウザから直接コーディングできるクラウドベースの開発環境です。また、ご自身のパソコンのVisual Studio Codeから接続することもできます。
 
 In your forked repository, click on the green button that says **<> Code**, go to the **Codespaces** tab an click on **Create codespace on main**. Let's do it!
+フォークリポジトリで、**<> Code** と書かれた緑色のボタンをクリックして、**Codespaces** に移動し**Create codespace on main** をクリックします。やってみましょう！
 
 ![Create codespace on main](./images/light/CreateCodespace.png)
 
-After a few seconds a new browser window will open with your codespace. On the lower right corner you will see a pop-up that asks you if you want to install the recommended extensions for this repository. Click on **Install**.
+
+数秒後、新しいブラウザのウィンドウが開きます。右下隅には、このリポジトリに推奨される拡張機能をインストールするかどうかを尋ねるポップアップが表示されるので**Install** をクリックします。
 
 ![Install recommended extensions](./images/light/InstallRecommendedExtensions.png)
 
-Another tab in our codespace opens and it installs the extensions for Azure Functions and Python. Click back into the **Explorer** tab on the upper left to see the folder structure of our repository again.
+
+CodeSpace の別のタブを開き、Azure関数とPython用の拡張機能をインストールします。左上にある**Explorer** タブに戻ると、リポジトリのフォルダー構造を再度表示できます。
 
 ![Explorer tab](./images/light/ExplorerTab.png)
 
-Now that you have successfully created and customised your GitHub account, and created our codespace we will move onto the next challenge for today.
+GitHubアカウントを正常に作成およびカスタマイズし、CodeSpaceを作成したので、次のチャレンジに進みましょう。
 
-You will make your first code changes and merge your first pull request here.
+最初にコードを変更し、最初のプルリクエストを作成してマージします。
 
-## Bonus Challenge: Build your own Octocat
 
-Octocat is the official mascot of GitHub and the cutest, friendliest, and most tentacular cat you'll ever meet! With its unique octopus-like shape, Octocat has become a beloved symbol of the GitHub community, popping up in merchandise, events, and social media.
+## 応用課題：独自のOctocatを作成しましょう
 
-As an extra challenge for those who finish early, we dare you to unleash your creativity and design your own Octocat using the Octocat builder at [https://myoctocat.com](https://myoctocat.com/). This tool allows you to customize the color, shape, and accessories of your Octocat, and share it with others.
+Octocatは、GitHubの公式マスコットであり、かわいい猫のようなタコのようなユニークな生き物です。OctocatはGitHubコミュニティの愛されているシンボルになり、商品、イベント、ソーシャルメディアに現れます。
+
+早めに終了した人たちにとっての挑戦として、 [https://myoctocat.com](https://myoctocat.com/) でOctocat Builderを使用して、独自のOctocatをデザインしてみましょう。このツールを使用すると、Octocatの色、形状、アクセサリーをカスタマイズし、他の人と共有できます。
 
 
 Think of your Octocat as your personal avatar, your spirit animal, or your alter ego. Give it a funky hairstyle, a cool outfit, or a quirky accessory. Make it reflect your personality, your interests, or your sense of humor.
+あなたのOctocatをあなたの個人的なアバター、あなたの分身と考えてください。ファンキーなヘアスタイル、クールな衣装、または風変わりなアクセサリーを試してください。
 
-Who knows, your Octocat might become the next internet sensation, the star of a blockbuster movie, or the mascot of a future GitHub feature. Or it might just make you smile :)
-
-So go ahead, have fun, and show us what you've got!
+さあ、楽しみにして、あなたが持っているものを見せてください！
 
 [🔼 Home](../../../README.md) | [Next challenge ▶](../ApplicationPart1/README.md)
