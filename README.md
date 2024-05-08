@@ -23,7 +23,6 @@
 
 どちらを選んでも、コーディングの冒険に参加できます。さぁ始めましょう！🚀
 
-## Agenda for the Everyone can Code workshop
 ## アジェンダ
 
 ### Day 1
@@ -50,7 +49,7 @@
 
 このワークショップは、複数の課題で構成されています。トレーナーは、完了しなければならない各トピック/課題について参加者の皆さんのフォローをします。
 
-## Hands on Guide
+## ハンズオンガイド
 
 - [Day 1 - GitHub を使ってみよう](instructions/day1/GitHub/README.md)
 - [Day 1 - コードを変更してみよう](instructions/day1/ApplicationPart1/README.md)
