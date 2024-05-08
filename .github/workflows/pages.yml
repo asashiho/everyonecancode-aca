@@ -55,27 +55,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        if: github.repository_owner == 'microsoft'
+        if: github.repository_owner == 'asashiho'
         with:
           lfs: true
 
       - uses: actions/setup-node@v3
-        if: github.repository_owner == 'microsoft'
+        if: github.repository_owner == 'asashiho'
         with:
           node-version: "14"
 
       - run: npm init -y
-        if: github.repository_owner == 'microsoft'
+        if: github.repository_owner == 'asashiho'
 
       - run: npm install vuepress vuepress-plugin-code-copy
-        if: github.repository_owner == 'microsoft'
+        if: github.repository_owner == 'asashiho'
 
       - run: node_modules/.bin/vuepress build
-        if: github.repository_owner == 'microsoft'
+        if: github.repository_owner == 'asashiho'
 
       - name: Upload result of vuepress build
         uses: actions/upload-artifact@v3
-        if: github.repository_owner == 'microsoft'
+        if: github.repository_owner == 'asashiho'
         with:
           name: static-website
           path: .vuepress/dist
@@ -101,7 +101,7 @@ jobs:
 
       - name: Download build of static website
         uses: actions/download-artifact@v3
-        if: github.repository_owner == 'microsoft'
+        if: github.repository_owner == 'asashiho'
         with:
           name: static-website
           path: dist/instructions
