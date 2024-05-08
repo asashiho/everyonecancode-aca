@@ -68,7 +68,14 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_9F5C153BEDE54650BC5D6FB52BCD7F6D }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F776A2DB00114B1BB2A7048D6E81CB5E }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EE07EDA438714752BFB0A799A1A166AB }}
-
+          
+      - uses: azure/appservice-settings@v1
+        with:
+          app-name: 'milligram'
+          slot-name: 'Production'  # Optional and needed only if the settings have to be configured on the specific deployment slot
+          app-settings-json: '[{ "name": "CHAT_API_KEY", "value": "${{ secrets.CHAT_API_KEY }}", "slotSetting": false }, { "name": "CHAT_API_ENDPOINT", "value":  "${{ secrets.CHAT_API_ENDPOINT }}", "slotSetting": false }, { "name": "AZURE_OPENAI_MODEL_NAME", "value": "${{ secrets.AZURE_OPENAI_MODEL_NAME }}", "slotSetting": false }]'
+        id: settings
+        
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
