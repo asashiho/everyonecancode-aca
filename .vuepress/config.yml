@@ -1,4 +1,4 @@
-title: Anyone Can Code
+title: Everyone Can Code
 patterns: ["**/*.md", "!**/node_modules", "!templates/**", "!frontend/**", "!Track_2_ToDo_App/**"]
 base: /everyonecancode/instructions/
 themeConfig:

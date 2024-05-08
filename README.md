@@ -11,38 +11,36 @@
 <hr>
 
 # Welcome to our coding journey!
+# コーディングの旅へようこそ！
 
-It's great to have you here! 🎉
 
-You have two exciting choices ahead of you:
+このワークショップでは、次の2つを試すことができます
 
-1. **Build your own social media app** - If you're outcome-oriented and want to show off a cool social media application, stay right here in this repository! You'll learn how to deploy and configure your very own app. It's a fantastic way to dive right into the world of software development! **[Click here to take a look at the sample app](https://microsoft.github.io/everyonecancode/)**
+1. **ソーシャルメディアアプリの作成**  - クールなソーシャルメディアアプリケーションを作りたい場合は、**[Click here to take a look at the sample app](https://microsoft.github.io/everyonecancode/)** にアクセスしてください！独自のアプリを展開および構成する方法を学びます。
 
-3. **Learn to code by building a todo app** - If you're detail-oriented and want to start off your coding journey with a solid foundation, jump over to this repository: [Track_2_ToDo_App](https://github.com/microsoft/everyonecancode/blob/main/Track_2_ToDo_App/Workshop-Format.md). You'll get to learn the basics of coding by building an intuitive, yet powerful, todo app.
+2.*TODOアプリを構築してコーディングを学ぶ**  - コーディングの基本を学びたいときは、**[Click here to take a look at the sample app](https://microsoft.github.io/everyonecancode/)** にアクセスしてください！Todoアプリを構築することにより、コーディングの基本を学ぶことができます。
 
-No matter which path you choose, we're thrilled to be a part of your coding adventure. Let's get started! 🚀
+
+どちらを選んでも、コーディングの冒険に参加できます。さぁ始めましょう！🚀
 
 ## Agenda for the Everyone can Code workshop
+## アジェンダ
 
 ### Day 1
-- Create your own GitHub Account and merge your first pull request
-- Use this repository as our baseline
-- Use Azure Web Apps to host your own application
-- Play around with the frontend to customize your App and to understand the basic underlying concept of Azure
-- Use Azure Functions to automate your tasks
-- Use storages and databases to store images and data
-- Use Github Copilot to make changes to the codesource
+- GitHubアカウントを作成し、最初のプルリクエストをマージします
+- このリポジトリをベースラインとして使用します
+- Azure Web Appsを使用して、アプリケーションをクラウドで動かします
+- アプリをカスタマイズしながら、Azureの基本的な概念を理解します
+- ストレージを使用して画像とデータを保存します
+- Github Copilotを使用してAIの力を借りてコーディングをします
 
-All these Azure Services are used behind the scenes and can be consumed by our application aka personal App.
 
 ### Day 2
-- Make your existing personal app smart with pre-trained machine learning models. For this we will focus on our managed services like Azure Cognitive Services: Computer Vision API and Speech API.
-- Connect your application with the services. This shows the entire lifecycle and brings together best of both worlds.
-- Add a chat bot to the application using Azure OpenAI.
-- Trainers will suggest a long list of online courses to get started and to get a deeper dive into the technologies.
+- 学習済みの機械学習モデルを使用して、画像認識や音声認識を行いアプリに機能を追加します。
+- Azure OpenAIを使用して、アプリケーションにチャットボットを追加します。
+- トレーナーは、オンラインコースの紹介とテクノロジーをより深く掘り下げます。
 
-Furthermore, all Everyone Can Code graduates are invited to join our [AI Developer College](https://github.com/azuredevcollege/aidevcollege) or
-[Azure Developer College](https://github.com/azuredevcollege/trainingdays).
+さらに、このコースを受講したみなさんは、 [AI Developer College](https://github.com/azuredevcollege/aidevcollege) または[Azure Developer College](https://github.com/azuredevcollege/trainingdays)に参加できます。
 
 <div align="center">
   <p> Female Tech ❤︎ All Generations</p>
@@ -50,26 +48,27 @@ Furthermore, all Everyone Can Code graduates are invited to join our [AI Develop
 
 <br>
 
-This workshop consists of multiple challenges, which you have to complete. Your trainers will guide you through the workshop by giving you introduction talks to each of the topics/challenges you have to complete.
-
-Here's the overview of the training week. Happy hacking!
+このワークショップは、複数の課題で構成されています。トレーナーは、完了しなければならない各トピック/課題について参加者の皆さんのフォローをします。
 
 ## Hands on Guide
 
-- [Day 1 - GitHub - Create new dreams](instructions/day1/GitHub/README.md)
-- [Day 1 - Make the first changes](instructions/day1/ApplicationPart1/README.md)
-- [Day 1 - Application on our Phone ](instructions/day1/ApplicationPart2/README.md)
-- [Day 1 - Make changes with Github Copilot](instructions/day1/ApplicationPart3/README.md)
-- [Day 2 - Make our application recognizer objects in images](instructions/day2/Vision/README.md)
-- [Day 2 - Make our application understand speech](instructions/day2/Speech/README.md)
-- [Day 2 - Power up our application with a chat bot](instructions/day2/Chat/README.md)
-## Goal of the Everyone can Code Program for women in the ENTIRE ECOSYSTEM over Generations
+- [Day 1 - GitHub を使ってみよう](instructions/day1/GitHub/README.md)
+- [Day 1 - コードを変更してみよう](instructions/day1/ApplicationPart1/README.md)
+- [Day 1 - スマホで使えるアプリを作ろう ](instructions/day1/ApplicationPart2/README.md)
+- [Day 1 - Github Copilotを使ってより良いアプリにしよう](instructions/day1/ApplicationPart3/README.md)
+- [Day 2 - 画像の中にあるものを認識する機能を追加しよう](instructions/day2/Vision/README.md)
+- [Day 2 - 音声認識機能を追加しよう](instructions/day2/Speech/README.md)
+- [Day 2 - 生成AIとチャットができる機能を追加しよう](instructions/day2/Chat/README.md)
+  
+## Everyone can Code の目指すところ
 
-The goal is to show all women of any generation, that anything is possible also in the area of tech and to light the fire for coding. We aim to connect all generations of women whether they are pupils, university students or professionals already performing in jobs. Furthermore, we aim to connect those generations which haven't gotten in touch with tech yet since we noticed that there is a huge gap between these communities. We believe there aren't enough female tech heroes yet.
+目標は、あらゆる世代のすべての女性に、ハイテクの分野でも何でも可能であることを示すことであり、コーディングのために火を灯すことです。私たちは、高校生・大学生・専門家であろうと、すべての世代の女性をつなぐことを目指しています。さらに、これらのコミュニティの間に大きなギャップがあることに気づいて以来、私たちはまだテクノロジーと連絡を取っていない世代をつなぐことを目指しています。まだ十分な女性のハイテクヒーローはいないと信じています。
 
-However, it is possible to dive into tech at any age. Therefore, we thought of starting with something that we are all familiar with - applications on our phones. Together we will build an app on our phones which can take pictures and which we can talk to. And to put it in other (tech) words: _how to build a progressive web app on our phones which uses pre-trained Machine Learning models as restful endpoints_. The application uses so-called REST APIs (don't worry we will explain this term later) and we will use Azure to meet the challenges to get it running.
+あらゆる年齢でも、技術の世界に飛び込むことは可能です。したがって、私たちは皆、私たちがよく知っているものから始めることを考えました。一緒に、写真を撮ることができ、話すことができるスマートフォンアプリをAzureやGitHubを使って作ります。
 
-To close the gap, we will first start with getting the application up and running and then secondly integrate the Machine Learning REST APIs. As a place where we can create our tech dreams we will use GitHub to create our space of collaboration as our motto always is: **Sharing is Caring!**
+参加者のギャップをなくすために、最初に小さなアプリケーションをうごかしてから、少しずつさまざまな機能を追加していきます。
+
+もしかすると、プログラムに不慣れな人もいるでしょう。そのときはチームみんなで協力し合うことがなにより重要です。**Sharing is Caring!**
 
 <div align="center">
   <p></p>

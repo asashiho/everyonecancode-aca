@@ -19,7 +19,7 @@
     - [プロフィール写真をアップロードして、名前を入力します](#プロフィール写真をアップロードして名前を入力します)
   - [リポジトリのフォーク](#リポジトリのフォーク)
   - [CodeSpace の作成](#codespace-の作成)
-  - [応用課題：独自のOctocatを作成しましょう](#応用課題独自のoctocatを作成しましょう)
+  - [応用：独自のOctocatを作成しましょう](#応用独自のoctocatを作成しましょう)
 
 
 ## サインアップしてGitHubアカウントで作成します
@@ -94,16 +94,15 @@ GitHubアカウントを正常に作成およびカスタマイズし、CodeSpac
 最初にコードを変更し、最初のプルリクエストを作成してマージします。
 
 
-## 応用課題：独自のOctocatを作成しましょう
+## 応用：独自のOctocatを作成しましょう
 
 Octocatは、GitHubの公式マスコットであり、かわいい猫のようなタコのようなユニークな生き物です。OctocatはGitHubコミュニティの愛されているシンボルになり、商品、イベント、ソーシャルメディアに現れます。
 
 早めに終了した人たちにとっての挑戦として、 [https://myoctocat.com](https://myoctocat.com/) でOctocat Builderを使用して、独自のOctocatをデザインしてみましょう。このツールを使用すると、Octocatの色、形状、アクセサリーをカスタマイズし、他の人と共有できます。
 
 
-Think of your Octocat as your personal avatar, your spirit animal, or your alter ego. Give it a funky hairstyle, a cool outfit, or a quirky accessory. Make it reflect your personality, your interests, or your sense of humor.
 あなたのOctocatをあなたの個人的なアバター、あなたの分身と考えてください。ファンキーなヘアスタイル、クールな衣装、または風変わりなアクセサリーを試してください。
 
-さあ、楽しみにして、あなたが持っているものを見せてください！
+さあ、楽しみにして、あなたが作ったものを見せてください！
 
 [🔼 Home](../../../README.md) | [Next challenge ▶](../ApplicationPart1/README.md)
