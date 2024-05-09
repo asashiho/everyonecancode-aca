@@ -1,128 +1,170 @@
-# Challenge 2: Make your first code changes and merge your first pull request
+# 課題2：コードの変更とプルリクエストの作成とマージ
 
-⏲️ _Est. time to complete: 60 min._ ⏲️
 
-## Here is what you will learn 🎯
+⏲️ _完了までの時間: 60 min._ ⏲️
 
-Today you will learn how to:
+## このパートで学ぶこと 🎯
 
-- Create a new branch in your project
-- How to change the title and it's color of your App
-- Test your changes in your codespace
-- Commit & push your changes
-- Open a pull request & merge it
+- プロジェクトに新しいブランチを作成します
+- タイトルを変更するためにコードを変更しよう
+- Codespaceで変更を確認します
+- 変更をコミットしてプッシュします
+- プルリクエストを開き、マージします
 
-## Table Of Contents
+## 目次
 
-1. [Create a new branch in your project](#create-a-new-branch-in-your-project)
-2. [Change the title and its color of your App](#change-the-title-and-its-color-of-your-app)
-3. [Test your changes in your codespace](#test-your-changes-in-your-codespace)
-4. [Commit & push your changes](#commit--push-your-changes)
-5. [Open a pull request and merge it](#open-a-pull-request-and-merge-it)
+- [課題2：コードの変更とプルリクエストの作成とマージ](#課題2コードの変更とプルリクエストの作成とマージ)
+  - [このパートで学ぶこと 🎯](#このパートで学ぶこと-)
+  - [目次](#目次)
+  - [プロジェクトに新しいブランチを作成します](#プロジェクトに新しいブランチを作成します)
+  - [アプリのタイトルと色を変更する](#アプリのタイトルと色を変更する)
+  - [CodeSpace で変更した内容を確認します](#codespace-で変更した内容を確認します)
+  - [変更をコミットしてプッシュします](#変更をコミットしてプッシュします)
+  - [プルリクエストを作成し、マージします](#プルリクエストを作成しマージします)
 
-## Create a new branch in your project
 
-Go to your repository on GitHub. Click on the "main" dropdown and type in the name of your new branch (e.g., Update-title-and-color). Click on 'Create branch: update-title-and-color' to create it.
+## プロジェクトに新しいブランチを作成します
+
+GitHubのリポジトリに移動します。"main" をクリックして、新しいブランチの名前 **「update-title-and-color」** を入力します。次に **[Branch：Update-Title-and-Color]** をクリックしてブランチを作成します。
 
 ![Create a new branch](./images/create-branch.png)
 
-Let's type a few git commands in the terminal to create a new branch.
+ターミナルにいくつかのGitコマンドを入力して、新しいブランチを作成しましょう。
 ![Terminal](./images/terminal.png)
 
 <details>
-<summary>What is a terminal?</summary>
+<summary>ターミナルとはなんですか？</summary>
 
-You are probably used to getting things done on your computer by moving your mouse around and clicking on things. There is actually a different way with which you can use your computer: The terminal!\ Instead of moving your mouse you can type a command in the terminal and the computer will execute it. Say, you want to go to a specific folder on your computer - we have a command for that, namely, `cd <path-to-your-folder>` (cd stands for change directory). There are many other commands that can do many different things. We call the set of all commands and their combinations the Shell Scripting language. You can try them out for yourself, go to the terminal (the little box as shown in the picture) and type `help` - this will list all the built-in commands. Feel free to play around and give them a try to familiarize yourself with the environment. For some handy common commands you can try: `pwd` (outputs the path of your current directory, pwd stands for print working directory) and `ls` (lists all the files in the current repository)
+私たちはマウスを動かしてコンピューターを操作することに慣れています。
+
+しかし、コンピューターを操作できる別の方法があります。それがターミナルです。マウスを使うする代わりに、ターミナルにコマンドを入力するとコンピューターを操作できます。
+
+たとえば、コンピューターの特定のフォルダーに移動したい場合があります。そのときは、ターミナルに `cd <path-to-your-folder>` を入力します。
+
+ほかにも数多くのコマンドがあります。すべてのコマンドのセットとその組み合わせをシェルスクリプト言語と呼びます。ターミナルで（写真に表示されているよう小さなボックス）に移動して`help` と入力すると、すべての組み込みコマンドが一覧表示されます。
+
+自由にコマンドを試してみてください。よく使う一般的なコマンドは、`pwd` （現在のディレクトリのパスを出力する、pwdは印刷作業ディレクトリの略）や `ls`（現在のリポジトリ内のすべてのファイルをリスト）などがあります。
 
 </details>
 
-Go back into your codespace and type into the terminal:
+Codespaceに戻り、ターミナルに次のコマンドを入力します。
 
-    git pull
+```bash
+git pull
+```
 
-and afterwards:
+次に、ブランチを切り替えます。
 
-    git checkout update-title-and-color
-
-It should look similar to this:
+```bash
+git checkout update-title-and-color
+```
 
 ![Pull and checkout](./images/pull-checkout.png)
 
-Congrats! You just created a new branch and switched to it successfully. Now you can start making changes to your code!
+おめでとうございます！新しいブランチを作成し、正常に切り替えができました。これで、コードの修正を始められます！
 
-## Change the title and its color of your App
 
-Open the file `Home.vue` from the folder `frontend/src/views`. On top you find a so called `<template>` that describes the basic structure of the Home-View. To change the title of your App from Milligram however you like, you need to change the text between the `<b-navbar-item>` tags.
+## アプリのタイトルと色を変更する
+
+フォルダー `frontend/src/views` にあるファイル `Home.vue` を開きます。このファイルにはホームビューの基本構造をきめる `<template>` があります。今はアプリ名が「Milligram」になっています。これをあなたが好きなタイトルを変更するには、 `<b-navbar-item>` タグ間のテキストを変更します。
 
 ![Change title](./images/juliagram.png)
 
-To change the color we need to add a new attribute to the `<b-navbar-item>` tag. The attribute is called `style` and we can set it to `color: green` to make our title green. [You can find a full list of all possible colors here.](https://htmlcolorcodes.com/color-names/)
+色を変更するには、 `<b-navbar-item>` タグに新しい属性を追加する必要があります。属性は `style` と呼ばれ、タイトルを緑にするために `color: green` に設定できます。他の色を試したいときは[ここ](https://htmlcolorcodes.com/color-names/) から選んでください。
 
+```html
+    <b-navbar fixed-top :mobile-burger="false">
+      <template #brand>
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+        <b-navbar-item id="fontnavbar" class="title is-2" style="color: green">
+          Milligram <= ここに好きなアプリ名前を入れてください
+        </b-navbar-item>
+      </template>
+    </b-navbar>
+```
 ![Change the color of the title](./images/style-tag.png)
 
-## Test your changes in your codespace
 
-1. Install recommended extensions when prompted.
-2. In the terminal, navigate to the frontend folder with `cd frontend`
-3. Run `npm install` to install node packages.
+## CodeSpace で変更した内容を確認します
+
+1. プロンプトが表示されたら、推奨されている拡張機能をインストールします。
+2. ターミナルで、`cd frontend` を入力し、フロントエンドフォルダーに移動します
+3. `npm install` を入力して、必要なパッケージをインストールします。
 4. Build the app with this command - `npm run dev`
-5. Click _browse to site_ when it pops up to see the deployed test site, you should now see your changes
-6. Now, try to change the color of the title to another color of your choice: the color will change automatically in the browser without you having to refresh the page!
+4. `npm run dev` を入力してこのコマンドを使用してアプリを実行します。
+5. ポップアップが表示されたら、[閲覧] をクリックしてください。ブラウザが開き変更が表示されるはずです
+6. 次に、タイトルの色を別の色に変更してみてください。ページを更新することなく、色はブラウザで自動的に変更されます！
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
 ![Browse to test site](./images/browse-test.png)
 
 
-
-| :warning: Troubleshooting          |
+| :warning: トラブルシューティング         |
 |:---------------------------|
-| if the `open in browser`pop-up does not show up at the bottom of your window, refresh the page and retry    |
+| 「open in browser」ポップアップがウィンドウの下部に表示されない場合は、ページを更新して再試行してください  |
 
+## 変更をコミットしてプッシュします
 
-
-## Commit & push your changes
-
-Click on the `+` sign on the upper right of your terminal to create a new one. We do not want to stop our app from running, so we will use a new terminal for the next steps.
+ターミナルの右側にある `+` ボタンをクリックして、新しいターミナルを作成します。アプリの実行を停止したくないため、次のステップは新しいターミナルを使用します。
 
 ![Create a new terminal](./images/new-terminal.png)
 
-After verifying your changes, it's time to commit and push. At first we want to check which files we have changed. Type `git status` into your terminal and press enter. As we have only made changes in our **Home.vue** file, we can see that it is marked as modified.
+変更を確認した後、コミットしてプッシュする時が来ました。最初は、どのファイルを変更したかを確認したいと考えています。ターミナルに `git status` と入力し、**[Enter]** を押します。**home.vue** ファイルに変更があるため、変更されたとマークされていることがわかります。
 
 ![Git status](./images/git-status.png)
 
-Now first run `git add .` this will add all changed files to the staging area. Afterwards run `git commit -m "Update title and color"` to commit your changes. The `-m` flag is used to add a commit message. It is important to add a meaningful commit message, so that others can understand what you have changed. Afterwards run `git push` to push your changes to GitHub.
+
+最初に `git add` コマンドを実行します。これにより、すべての変更されたファイルがステージング領域に追加されます。その後、`git commit -m "Update title and color"` を実行します。`-m` フラグは、コミットメッセージを追加するために使用されます。意味のあるコミットメッセージを追加して、他の人があなたが変えたものを理解できるようにすることが重要です。その後、`git push` を実行して、GitHubに変更をプッシュします。
+
+```bash
+git add .
+git commit -m "Update title and color"
+git push
+```
 
 ![Git commit and push](./images/git-commit-push.png)
 
-## Open a pull request and merge it
 
-Now go back into your GitHub repository. You should see a message that you have pushed your branch. Click on the **Compare & pull request** button to open a new pull request. 
+## プルリクエストを作成し、マージします
 
-> If this message does not appear, click on the **Pull requests** tab and then on the **New pull request** button.
+
+次に、ブラウザでGitHubリポジトリに戻ります。**Compare & pull request** ボタンをクリックして、新しいプルリクエストを作成します。
+
+> このメッセージが表示されない場合は、**Pull requests** タブをクリックし、**New pull request** ボタンをクリックします。
 
 ![Compare & pull request](./images/compare-pull-request.png)
 
-A new window will open. Here you can see your last commit message as a title and have the possibilty to insert a description. Check that you have chosen your own repositories main branch for the merge.
+新しいウィンドウが開きます。ここでは、最後のコミットメッセージをタイトルとして見ることができ、必要があれば説明を追加することもできます。次にマージをします。ここでは必ず、**ご自身でフォークした独自のリポジトリのメインブランチを選択** していることを確認してください。
 
-Click on the **Create pull request** button on the lower left to create a new pull request.
+左下の**Create pull request**  ボタンをクリックして、新しいプルリクエストを作成します。
 
-> **Note**
-> Please check that you open the pull request against the main branch of your own repository as shown in the screenshot below!
+> **重要！注意！！**
+> 以下のスクリーンショットに示すように、必ず自分がフォークしたリポジトリのメインブランチに対するプルリクエストになっていることを確認してください！
 
 ![Open pull request](./images/open-pull-request.png)
 
-Another window opens. Here you can review your changes again. Click on **Files changed**. You can see the changes we have made in the **Home.vue** file.
+別のウィンドウが開きます。ここでは、変更をもう一度確認できます。**Files changed** をクリックします。**Home.vue** をみると変更箇所を確認できます。
 
 ![Review changes](./images/review-changes.png)
 
-Click back on **Conversation** to see the conversation view. Here you can see the commit message and the description we have added.
+**Conversation** をクリックして、会話ビューを確認してください。ここでは、コミットメッセージと追加した説明を見ることができます。
 
-Pull requests are a very popular way of working professionally together with other developers on a project to ensure code quality. Usually another person would now review your changes and then (hopefully) accept them and merge them into the **main** branch.
-Today we will do this ourselves. Click on the **Merge pull request** and then **Confirm merge** button to merge your recent made changes.
+プルリクエストは、コードの品質を確保するために、プロジェクトで他の開発者と一緒に作業するための良く利用されるやり方です。通常、別の人があなたの変更を確認し、問題ないことを確認したうえで、**main** ブランチに取り込みます。こうすることで、予期せぬバグや不具合が混入されるのを防ぎます。
 
-If everything went well, you should see a message that your pull request has been merged.
+私たちはこれを自分でやってみましょう！！ **Merge pull request** をクリックしてから、**Confirm merge** ボタンを確認して、変更をマージします。
+
+すべてがうまくいった場合、プルリクエストがマージされたというメッセージが表示されます。
 
 ![Pull request merged](./images/pull-request-merged.png)
 
-Congratulations! You have successfully made your first changes to your project, learned how professional developers work together and merged them into the main branch.
+おめでとうございます！プロジェクトに最初の変更を行い、開発者がどのように協力してメインブランチに統合するのかの流れを学びました。
 
 [◀ Previous challenge](../GitHub/README.md) | [🔼 Home](../../../README.md) | [Next challenge ▶](../ApplicationPart2/README.md)

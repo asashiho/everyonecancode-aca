@@ -1,297 +1,335 @@
-# Challenge 3: Create Milligram application on Azure
+# 課題3：Azureでアプリケーションを動かしてみよう
 
-⏲️ _Est. time to complete: 60 min._ ⏲️
+⏲️ _完了までの時間: 60 min._ ⏲️
 
-## Here is what you will learn 🎯
+## このパートで学ぶこと 🎯
 
-Today you will learn how to:
+- GitHub Actionsを始めましょう
+- MilligramアプリケーションのフロントエンドをGitHub Pagesで公開します
+- AzureでPython Webアプリを作成します
+- GitHub ActionsでAzureにMilligramアプリケーションのバックエンドをデプロイします
 
-- Get started with GitHub Actions
-- Deploy the Milligram frontend to GitHub Pages
-- Create a Python web app on Azure
-- Deploy the Milligram backend on Azure with GitHub Actions
+## 目次
 
-## Table Of Contents
+- [課題3：Azureでアプリケーションを動かしてみよう](#課題3azureでアプリケーションを動かしてみよう)
+  - [このパートで学ぶこと 🎯](#このパートで学ぶこと-)
+  - [目次](#目次)
+    - [参考になる情報](#参考になる情報)
+  - [Milligramアプリケーションフロントエンド](#milligramアプリケーションフロントエンド)
+    - [GitHub Actions を有効にします](#github-actions-を有効にします)
+    - [GitHub Actionsを実行します](#github-actionsを実行します)
+    - [プロジェクト設定でGitHub Pagesを有効にします](#プロジェクト設定でgithub-pagesを有効にします)
+    - [スマートフォンでMilligramアプリケーションを開きます](#スマートフォンでmilligramアプリケーションを開きます)
+    - [ホーム画面にアプリケーションを追加します](#ホーム画面にアプリケーションを追加します)
+  - [Milligramアプリケーションバックエンド](#milligramアプリケーションバックエンド)
+    - [Azureにログインします](#azureにログインします)
+    - [Azure Storage Accountを作成します](#azure-storage-accountを作成します)
+    - [Webアプリを作成します](#webアプリを作成します)
+    - [ストレージとWebアプリを構成します](#ストレージとwebアプリを構成します)
+    - [Azure Webアプリの構成](#azure-webアプリの構成)
+    - [GitHubアクションを介してミリグラムバックエンドコードをAzure Webアプリにデプロイします](#githubアクションを介してミリグラムバックエンドコードをazure-webアプリにデプロイします)
+    - [Milligramアプリが正しく実行されているかどうかを確認しよう](#milligramアプリが正しく実行されているかどうかを確認しよう)
+    - [振り返り！私たちはこれまで何をしましたか？](#振り返り私たちはこれまで何をしましたか)
+    - [GitHub SecretsにAzure WebアプリURLを連携します](#github-secretsにazure-webアプリurlを連携します)
+    - [フロントエンドパイプラインをもう一度実行します](#フロントエンドパイプラインをもう一度実行します)
+    - [Milligramアプリケーションを開く - セルフィーを取り、ニュースフィードを確認しましょう](#milligramアプリケーションを開く---セルフィーを取りニュースフィードを確認しましょう)
 
-1. [Milligram application frontend](#milligram-application-frontend)
-   1. [Enable GitHub Actions](#enable-github-action)
-   2. [Run GitHub Actions](#run-github-action)
-   3. [Enable GitHub Pages in project settings](#enable-github-page-in-project-settings)
-   4. [Open GitHub Page on your phone](#open-github-page-on-your-phone)
-   5. [Add application to home screen](#add-application-to-home-screen)
-2. [Milligram application backend](#milligram-application-backend)
-   1. [Prepare image upload](#prepare-image-upload)
-   2. [Make application backend run in the cloud](#make-application-backend-run-in-the-cloud)
-   3. [Deploy image upload](#deploy-image-upload)
-3. [Overcharged? We got you covered](#overcharged-we-got-you-covered)
+### 参考になる情報
 
-### Further informative resources
+- [GitHub Actionsとは?](https://github.com/features/actions)
+- [GitHub Actions ドキュメント](https://docs.github.com/actions)
+- [リポジトリとは?](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)
+- [Resource / Resource Group / Subscription とは?](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
 
-- [What are GitHub Actions?](https://github.com/features/actions)
-- [GitHub Actions Documentation](https://docs.github.com/actions)
-- [What is a repository?](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)
-- [What is a Resource / Resource Group / Subscription?](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
 
-## Milligram application frontend
+## Milligramアプリケーションフロントエンド
 
-First, let's get started with the frontend application - The part that you will
-see and use on your mobile phone or your web browser. This is the main way to
-interact with Milligram's services.
+まず、フロントエンドアプリケーション(スマートフォンまたはWebブラウザーで表示される部分)から始めましょう。
 
 <details>
-<summary>What does frontend mean?</summary>
+<summary>フロントエンドとは？</summary>
 
-Let's imagine a simple car. Everything you see - the seats, the roof, the floor, the user interface (dashboard, steering wheel, etc.) - that's all **frontend**.
-Then you open the hood: and there it is! The **backend** and the **API**. You can see the engine, the transmission and some other elements.
+シンプルな車を想像してみましょう。あなたが見えるものすべて - 座席、屋根、床、ユーザーインターフェイス（ダッシュボード、ステアリングホイールなど） - アプリケーションではそれらを**frontend** と呼びます。
 
-But how to understand this example now... quite simple. The **frontend** is what the user uses to give instructions to the **backend** via an **API**. So when you step on the gas pedal, the engine accelerates.
+次にボンネットを開きます。エンジン、トランスミッション、その他の要素を見ることができます。 アプリケーションではこれらが **backend** や **API** です。
 
-_Stepping on the gas pedal triggers a request in the frontend to the API in the backend for the engine to accelerate, and the required part of the backend (in this case, the engine) executes it._
+つまり **frontend** は、ユーザーが**API** を介して**backend** に指示を提供するものです。それは、車のペタルを踏むと、エンジンが加速するのとよく似ています。
 
 </details>
 
-### Enable GitHub Actions
+### GitHub Actions を有効にします
 
-We've prepared an automated way to create and update the website for you. You will use two of GitHub's awesome features. GitHub Pages and GitHub Actions. Let's get started with the actions.
+GitHubには、Webサイトを作成する機能(**GitHub Pages**) および更新を自動化する機能(**GitHub Actions**)があります。
 
-- Go to your repository's **Actions**
-- Click the button which says _I understand my workflows, go ahead and enable them_ to enable GitHub Actions
+- リポジトリの***Actions**に移動します
+- _I understand my workflows, go ahead and enable them_ と書かれたボタンをクリックして、先に進み、GitHubアクションを有効にします
 
-_A [repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories) contains all of your project's files and each file's revision history. You can discuss and manage your project's work within the repository._
+_ [repository]（https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories）すべてのプロジェクトのファイルと各ファイルのファイルが含まれています改訂履歴。リポジトリ内でプロジェクトの作業について話し合い、管理できます。_
 
 ![Enable GitHub Actions](./images/EnableGithubActions.png)
 
-Make sure that the Actions have read/write permissions. Check this via Settings->Actions->General and scroll down to the _Workflow permissions_ section. Click the _Read and write permissions_ option. Click _Save_.
+ここで、**GitHub Actions** に読み取り/書き込み許可があることを確認してください。GitHubリポジトリの **[Settings]** -> **[Actions]** -> **[General]** をクリックし、**_WorkFlow Permissions_** セクションまでスクロールします。 **_read and write permissions_** オプションをクリックして、**_save_** をクリックします。
+
 ![Check Settings](./images/gh-actions-read.png)
 
-### Run GitHub Actions
 
-- In the **Actions** tab of your repository, click on the **pages** workflow.
-- Open the **Run Workflow** dropdown and click the **Run Workflow** button to confirm the workflow execution.
+### GitHub Actionsを実行します
 
-Now, observe how the workflow is being run and take a look at the individual steps that are run for you by GitHub.
+- リポジトリの **Actions** タブで、**pages** ワークフローをクリックします。
+- [**Run Workflow**] ドロップダウンを開き、[**Run Workflow**]ボタンをクリックして、ワークフローの実行を確認します。
+
+次に、ワークフローがどのように実行されているかを観察し、GitHubが実行する流れを見てみましょう。
 
 ![Run workflow](./images/FrontendRunWorkflow.png)
 
-### Enable GitHub Pages in project settings
+### プロジェクト設定でGitHub Pagesを有効にします
 
-To be able to display the website (frontend) we've built and deployed using
-GitHub Actions, we need to enable GitHub Pages for your repository. GitHub
-Pages are an easy way to display a static website related to your repository.
-Many people use it to display the documentation for their projects. We will use
-it to serve the frontend for Milligram.
+GitHub Actionsを使用して構築および展開したWebサイト( **frontend** ) を表示できるようにするには、リポジトリに対してGitHub Pagesを有効にする必要があります。GitHub Pages は、リポジトリに関連する静的Webサイトを簡単に表示する機能です。
 
-- Go to your repository settings-
+多くの人がそれを使用して、プロジェクトのドキュメントを表示します。Milligramアプリケーションのフロントエンドを提供するために使用します。
+
+
+- **repository settings** に移動します 
   ![Repository Settings](./images/RepoSettingsTab.png)
-- Navigate to **Pages**, select the branch _gh-pages_ and hit the save button.
+-  **Pages** に移動し、ブランチ `gh-pages` を選択し、**[Save]** ボタンをクリックします。
   ![Enable Pages](./images/FrontendPagesUpdated.png)
 - The deployment will take 1-2 minutes. After that, the Milligram website is
-  accessible through `https://<your github username>.github.io/everyonecancode/`.
+- デプロイには1〜2分かかります。その後、Milligramアプリケーションは次のURLで確認できます。
+  `https://<ご自身のGitHubアカウント名>.github.io/everyonecancode/`.
 
-Take a look at the website. Try changing the profile to your GitHub account name
-and see that it is stored even if you refresh the browser.
+ウェブサイトを確認します。プロファイルをご自身のGitHubアカウント名に変更してみて、プロフィール写真が変更されていることを確認してください。
 
-### Open GitHub Page on your phone
 
-Milligram is a fun little app similar to photo based social media that you might
-be familiar with. Of course we want to use it on our mobile phones so we can use
-the cameras to take awesome selfies and pictures for Milligram. Its main
-features are:
+### スマートフォンでMilligramアプリケーションを開きます
 
-- Display simple GitHub account information from your own profile
-- Take photos and add them to the stream of images
-- Detect objects within images and create image descriptions (implemented on day 2)
+Milligramアプリケーションは、あなたがよく知っているかもしれない写真ベースのソーシャルメディアに似た楽しいアプリです。もちろん、スマートフォンでカメラを使用して写真を撮って投稿できます。
+
+その主な機能は次のとおりです。
+
+- あなた自身のプロフィールからGitHubアカウント情報を表示する
+- 写真を撮って画像を表示する
+- 写真の画像内のオブジェクトを検出し、画像の説明を作成します
 - Transcribe sentences you speak using Azure Speech Service (implemented on day 2)
+-  Azure Speech Serviceを使用してマイクで話した内容を文字に起こします
 
-Your app is available. But there is no storage or database behind it. So it won't be able to store any data. We'll install that in the next step.
+今アプリは利用可能です。しかし、まだストレージやデータベースはありません。そのため、データを保存できません。そこで次のステップでこれらをインストールします。
 
-Now, to make the first modifications, open your personal Milligram website on your phone and explore it's content. Then edit the profile in the app to show your own GitHub profile picture in the app.
+さて、最初の変更を行うには、スマートフォンでMilligramアプリケーションを開き、コンテンツを探索します。次に、アプリのプロファイルを編集して、アプリに独自のGitHubプロファイル写真を表示します。
 
 ![Add to homescreen 1](./images/FrontendHomescreen0.jpg)
 
-### Add The application to your homescreen
 
-On modern mobile phones, you can "install" web apps on you homescreen to make them
-more accessible and make them look more like an app from an official
-appstore. Therefore, we will not add the app to our phones' homescreen.
+### ホーム画面にアプリケーションを追加します
 
-- Open the browser menu to add the website to your homescreen.
-  - This is how it should look like on ios:
+最新のスマートフォンでは、ホーム画面にWebアプリを「インストール」して、よりアクセスしやすくし、公式アプリのように見せることができます。したがって、アプリをスマートフォンのホーム画面に追加することはありません。
+
+- ブラウザメニューを開いて、ホーム画面にWebサイトを追加します。
+ - iOSの場合:
     ![Add to homescreen ios](./images/FrontendHomescreen1.jpg)
-  - This is how it should look on Android:
-    ![Add to homescreen Android](./images/FrontendHomescreen1.jpg)
-- Now you can open the website like a normal app from the homescreen of your phone.
+ - Androidの場合:
+    ![Add to homescreen Android](./images/android/FrontendHomescreen2.jpg)
 
-## Milligram application backend
+これで、スマートフォンのホーム画面から通常のアプリのようにウェブサイトを開くことができます。
 
-The application backend will receive uploaded photos, store them for us and return them when needed.
 
-Our application can be divided into a frontend (something you see and runs locally on your phone) and a backend (something which processes your information). In this case, as we want to create our own social media application, we need pictures to be stored for our "News Feed". That means we need a place to store many files and a place to run our application logic (which is our programming code).
+## Milligramアプリケーションバックエンド
 
-To store the files, we will use an "Azure Storage Account" and to run our application, we will use an "Azure Web App".
-First things first - sign into your "Azure Account".
+アプリケーションバックエンドは、アップロードされた写真を受け取り、それらを保存し、必要に応じて返します。
 
-### Log Into Azure
+アプリケーションは、フロントエンド（スマートフォンで表示されるもの）とバックエンド（情報を処理するもの）に分割できます。この場合、独自のソーシャルメディアアプリケーションを作成したいため、「ニュースフィード」のために写真を保存する必要があります。つまり、多くのファイルを保存する場所と、アプリケーションロジック（プログラミングコード）を実行する場所が必要です。
 
-- Go to your browser and visit [portal.azure.com](https://ms.portal.azure.com/?l=en.en-us#home).
+ファイルを保存するには、**「Azure Storage Account」** を使用し、アプリケーションロジックを実行するには、**「Azure Web App」**を使用します。
 
-- Log in with `your Azure Account`. The login information is provided to you by your trainer. Ask them if you don't know where to find it.
+まず最初に -**「Azure Storage Account」** にサインします。
+
+### Azureにログインします
+
+- ブラウザで[portal.azure.com](hhttps://ms.portal.azure.com/?l=en.en-us#home)にアクセスしてください。
+
+- **「Azureアカウント」** でログインします。ログイン情報は、コーチから提供されます。わからない場合は遠慮なく質問してください。
 
 ![Log In Azure](./images/light/LogInAzure.png)
 
-### Create Storage Account
 
-Our storage account is the place where we "save" our pictures for our news feed.
-Inside the storage account we use the so called [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/). The Blob Storage can hold a massive amount of files.
-Just like the disk or storage on your computer. A cool fun fact is that you can store as many photos on the storage account as you like and you don't have to worry about your storage space.
+### Azure Storage Accountを作成します
 
-> **Azure Resource**: In Azure, the term resource refers to an entity managed by Azure. For example, virtual machines, virtual networks,
-> and storage accounts are all referred to as Azure resources.
+Azure Storage Accountは、ニュースフィードの写真を「保存」する場所です。
 
-> **Azure Resource Group**: A resource group is a container that holds related resources for an Azure solution. The resource group can include all the
-> resources > for the solution, or only those resources that you want to manage as a group.
+ストレージアカウント内では、[Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/)を使用します。Azure Blob Storageには、膨大な量のファイルを保持できます。
 
-- Go to the home page of the Azure Portal.
-- Click on _+ Create a resource_.
-- Search for _Storage Account_ and click _Create_.
-- Select your subscription & the resource group with the name that you used to log into the Azure Portal.
-- The name of your Azure Storage account needs to be globally unique. It also has to use small letters and no special characters.
-- Make sure to select `Standard` for _Performance_ and `Locally-redundant storage (LRS)` for _Redundancy_.
+Azure Blob Storageには好きなだけ多くの写真を保存でき、ストレージスペースを心配する必要がありません。
+
+> **Azure Resource**: Azureの世界では、「リソース」はAzureが管理するエンティティを指します。たとえば、仮想マシン、仮想ネットワーク、およびストレージアカウントはすべてAzureリソースと呼ばれます。
+
+> ***Azure Resource Group**: リソースグループは、Azureソリューションに関連するリソースを保持するコンテナです。リソースグループには、ソリューション用のすべてのリソース、またはグループとして管理したいリソースのみを含めることができます。
+
+- Azureポータルのホームページに移動します。
+- **_+ Create a resource_** をクリックしてリソースを作成します。
+- **_Storage Account_** を検索し、**[_Create_]** ボタンをクリックします。
+- Azureポータルにログインするために使用した名前で、サブスクリプションとリソースグループを選択します。
+- Azureストレージアカウントの名前はグローバルで一意である必要があります。また、小文字と特殊文字は使用できません。
+-  **「`Locally-redundant storage (LRS)`」** と **「`Standard`」**を選択してください。
   ![Storage](./images/light/BackendStorage1.png)
-- Hit _Review_ and after that _Create_ to finish creating the storage account.
+-  **[_review_]** をクリックし、その後 **[_create_]** をクリックしてストレージアカウントを作成します。
 - Once the storage account is created there should be a button _Go to resource_. Click on it.
+- ストレージアカウントが作成されたら、**[_Go to resource_]** ボタンをクリックして、リソースに移動します。
 - Now you should see your storage account. Select _Containers_ on the left hand side.
-- Click the _New Container_ button and create a container named `images`. Leave everything in the preconfigured settings as is.
+- これで、ストレージアカウントが表示されます。次に画像を入れるためのコンテナを作ります。左側の **[_Containers_]** を選択します。
+-  **[_new container_]** ボタンをクリックして、「`images`」という名前のコンテナを作成します。その他はデフォルトのままで問題ありません。
 
-This is the place where all uploaded images to our Milligram app will be stored.
+ここで作成した`images` というコンテナは、Milligramアプリケーションからアップロードされた画像が保存される場所です。
 
-### Create Web App
+### Webアプリを作成します
 
-Our [Azure Web App](https://learn.microsoft.com/en-us/azure/static-web-apps/) is a computer managed by Microsoft where you can easily run your own application without worrying about software updates, security issues, backUp or hardware issues (as you might have already experienced on your phone).
+[Azure Web App](https://learn.microsoft.com/en-us/azure/static-web-apps/)は、Microsoftが管理するコンピューターで、ソフトウェアの更新を心配することなく簡単に独自のWebアプリケーションを実行できる便利なサービスです。
 
-- Go to the home page of the Azure Portal again.
-- Click on _+ Create a resource_ as you did before.
-- Search for _Web App_ and click _Create_.
-- Select your subscription & your Resource Group.
-- Make sure to adjust the settings according to the image below:
-  - Name: `<pick your own unique name>`
+- Azureポータルのホームページにもう一度移動します。
+- **[_+ Create a resource_ ]** をクリックして、以前と同じようにリソースを作成します。
+- **_Web App_** を検索し、**[_Create_]**をクリックします。
+- サブスクリプションとリソースグループを選択します。
+ - 以下の画像のとおり設定してください。
+  - Name: `everyonecancode-backend-あなたの名前`
   - Publish: `Code`
   - Runtime stack: `Python 3.12`
   - Operating System: `Linux`
   - Region: `West Europe`
     ![backend 0](./images/light/BackendApp0.png)
-- Create a new App Service Plan and `<pick your own name>`.
+- 新しい **App Service Plan** を作成し、 `everyonecancode-plan-あなたの名前`。
   ![backend 1](./images/light/BackendApp1.png)
-- In the pricing plan dropdown menu, select **Free F1** which is free, otherwise you might be charged when creating a larger plan.
-- Click _Review + Create_ at the bottom of the screen.
-- Review the displayed information and click _Create_ on the next screen to spin up the backend application.
+- 価格のドロップダウンメニューで、無料の **Free F1** を選択します。そうしないと、料金が請求される場合があります。
+- 画面の下部にある **_review + create_** をクリックします。
+- 表示されている情報を確認し、次の画面で **_create_** をクリックしてバックエンドアプリケーションを作成します。
 
 :::tip
-📝 On the review page, you can find information about the estimated costs of your service. Make sure it displays _Estimated price - Free_
+📝 確認ページでは、サービスの推定コストに関する情報があります。`Estimated price` を確認してください
 :::
 
-### Integrate storage and configure Web App
+### ストレージとWebアプリを構成します
 
-Now let's connect our application with our storage so that you can take pictures on your phone and store them. We need to tell the Web application where it can find our storage service. The application can take external configurations to configure the connection to the storage account.
+それでは、アプリケーションをストレージに接続して、スマートフォンで写真を撮って保管できるようにしましょう。
+ます、ストレージサービスの場所をWebアプリケーションに伝える必要があります。
+アプリケーションは、ストレージアカウントへの接続を構成するために外部構成を取得できます。
 
-- For this reason navigate to your _Storage account_ again. You should be able to find it via the search bar in the top either by searching its unique name or just storage account.
-- Under _Access keys_ you can find the _Connection string_ from our storage account. Hit the _👀 Show keys_ button so are able to copy it's value to e.g. a notepad.
+
+- まずストレージサービスの場所とキー情報を確認します。ストレージアカウントを検索することで作成したリソースを表示します。
+ -  ストレージにアクセスするためのキーは **_Access Keys_** 接続文字列は **_Connection String_** で確認できます。値を見るときは **_👀ShowKeys_** ボタンをおすと、その値をクリップボードにコピーできます。
   ![Screenshot of Access key page in Azure portal](./images/light/SecretAccessKeys.png)
-- Navigate back to the web app and open the _Configuration_ tab, click _New connection string_ and create a new connection string with the following settings:
+ -  次に、Webアプリに戻って **[_Configuration_]** タブを開き、 **[_New connection string_]** をクリックして、次のとおり新しい接続文字列を作成します。
   | Connection string | Type | Value |
   |-|-|-|
-  | `STORAGE` | Custom | `<paste your (earlier copied) connection string from Storage Account>` |
-- Hit `ok` and `Save`.
+  | `STORAGE` | Custom | `コピーした接続文字列` |
+- **`ok`** と **`Save`** をクリックします。
 - Navigate and scroll down to the _CORS_ tab on the left hand side of your app service and enter `https://<YourGithubHandle>.github.io` under _Allowed Origins_.
-- Hit `Save` again.
+- 次に、左側メニューにある **_CORS_** タブまでスクロールし、 `https://<ご自身のGitHubアカウント名>.github.io` を**_Allowed Origins_** に入力します。
+- ふたたび **`Save`** をクリックして設定完了です
 
-Now your storage account and web app are successfully connected and can communicate with each other.
+これで、ストレージアカウントとWebアプリが正常に接続され、相互に通信できるようになりました。
 
-### Azure Web App configuration
 
-There is still a small configuration missing. Our app uses a ready-made module so that users can interact with their content. But this module is not installed yet. In order for it to be installed, we provide the web app with a configuration that is executed when the app is launched, allowing users to interact with our app's data.
+### Azure Webアプリの構成
 
-- Navigate to **_Configuration_** under _Settings_.
+私たちのアプリは、既製のモジュールを使用して、ユーザーがコンテンツと対話できるようにします。
+
+ただし、このモジュールはまだインストールされていません。インストールするために、アプリの起動時に実行される構成をWebアプリに提供し、ユーザーがアプリのデータと対話できるようにします。
+
+-  **_settings_** の下の **_Configuration_**に移動します。
 - Under the tab **_General settings_** you should find the _Stack settings_. For our backend we are working with the programming language Python - more specifically Python 3.12.
-- Behind **_Startup Command_** enter `gunicorn -k uvicorn.workers.UvicornWorker` and hit _Save_.
+- タブの下にある **_General settings_** を確認します。バックエンドでは、プログラミング言語はPython、より具体的にはPython 3.12で作業しています。
+- **_Startup Command_** に「`gunicorn -k uvicorn.workers.uvicornworker`」を入力して **_save_** を押します。
   ![How to configure the Startup Command of the Web application](./images/light/AppServiceStartupCommand.png)
 
-### Deploy Milligram backend code to Azure Web App via GitHub Actions
 
-To ensure our social media application can actually do something, we need to bring our source code to the Azure Web App. To do that we will automate this so called "deployment". Hence, we don't have to rely on a manual process every time we want to make changes (e.g. changing the title of the application) to our application and thus, we avoid many mistakes.
+### GitHubアクションを介してミリグラムバックエンドコードをAzure Webアプリにデプロイします
 
-- Navigate to the _Deployment Center_ tab on the left hand side of your Web App in the Azure portal.
-- Under the _Settings_ tab select _GitHub_ as _Source_ and click _Authorize_.
-- Under _Organization_ select your GitHub handle and under _Repository_ select `anyonecancode` as well as the `main` _Branch_.
-- Hit `Save`.
+ソーシャルメディアアプリケーションが実際に何かを実行できるようにするには、ソースコードをAzure Webアプリに持ち込む必要があります。
 
-Once you have hit `Save` the service automatically creates a workflow file in your GitHub repository. This workflow is immediately being executed and after about 2 minutes your web app is ready. You can also check your deployment on your "Actions" tab in your repository. The color green is always a good sign.
+そのために、この「デプロイ」と呼ばれる作業をGitHub Actionsで自動します。アプリケーションに変更を加える(たとえば、アプリケーションのタイトルを変更するなど)するたびに手動でなにかをする必要はありません。
 
-### Check if Milligram app is running correctly
+- AzureポータルのWebアプリの左側にある **_Deployment Center_** タブに移動します。
+-  **_settings_** タブの下で **_source_** として **_github_** を選択し、**_authorize_** をクリックします。
+-  **_organization_** でGitHubのアカウント名を選択し、**_repository_** で「`anyonecancode`」と「`main`」ブランチを選択します。
+- **`Save`**ボタンをクリックします。
 
-Let's pause a second. To make sure that you are on track, test if our app's frontend gets a response from our backend service. Before we bring everything together, we want to make sure the backend service is working as expected.
+**`Save`** ボタンを押すと、サービスはGitHubリポジトリにワークフローファイルを自動的に作成します。
 
-- Navigate to the _Overview_ tab on the left hand side of the Web App Service.
+このワークフローはすぐに実行され、約2分後にWebアプリの準備が整います。
+
+リポジトリの **[Actions]** タブでを確認す​​ることもできます。緑色は問題なく進んでいることを表しています。
+
+
+### Milligramアプリが正しく実行されているかどうかを確認しよう
+
+問題なくデプロイできていることを確認するには、アプリのフロントエンドがバックエンドサービスから応答を取得するかどうかをテストします。
+
+すべてをまとめる前に、バックエンドサービスが期待どおりに機能していることを確認したいと考えています。
+
+- Azure ポータルからWebアプリサービスの左側の **_Overview_** タブに移動します。
   ![App Service URL](./images/light/AppServicesDocLink.png)
 - Hit on Default Domain, add `/docs` to the end, then test the website using the interactive documentation to figure out if the features of our Milligram will work.
-- In your browser you will have the following view:
+ - **Default Domain** のURLの後ろに「/docs」を追加し、インタラクティブなドキュメントを使用してWebサイトをテストして、MilligramアプリケーションのAPIが動作するかどうかを確認します。
+
+ URL: `http://everyonecancode-backend-xxxxx.azurewebsites.net/docs`
+
+ - ブラウザでは、次のように見えるはずです。
   ![Test API Page](./images/light/TestAPIGetImages.png)
 
   :::tip
-  📝 If you want to learn more about OpenAPI have a look at [Wikipedia](<https://en.wikipedia.org/wiki/OpenAPI_(software)>).
+  📝 もし OpenAPI について知りたいときは [Wikipedia](<https://en.wikipedia.org/wiki/OpenAPI_(software)>)を参考にしてください。
   :::
 
-- Select the _GET/images_ endpoint, hit `Try it Out` and then hit `Execute`. Once you get the 200 Response code, you have a successful running service. Congratulations!
+ -  **_GET/images_** エンドポイントを選択し、**「`Try it Out`」** をクリックして **`Execute`** を押します。200番の応答コードが返ってくると、正しく動いていることが確認できます。おめでとうございます！
 
   :::tip
-  📝 Look at the HTTP Response Codes at [Wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). 2xx Codes generally mean success, where as 4xx and 5xx Codes show different kinds of errors. You probably know 404 - Not Found.
+  📝 [Wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)のHTTP応答コードを見てください。2xxコードは一般に成功を意味し、4xxおよび5xxコードはさまざまな種類のエラーを示します。あなたはおそらく404をみたことがあるでしょう。これは「ページが見つかりません」という意味になります。
   :::
 
-### Clarifications, What have we done so far?
+### 振り返り！私たちはこれまで何をしましたか？
 
-Congratulations, you have just deployed the backend to your web application! Let us summarize what we have done so far.\
-First, we have deployed the frontend (user interface) of our web app using github pages. This is what you see when you go to your github pages link. The frontend needed a server to serve images and run some logic. This is where the azure part came in. First, we created a storage resource, this is responsible for storing our images. Second, we created a web app resource, here we will run our server logic. The server logic is written in Python using a framework called FastAPI. The server logic code is hosted in the everyonecancode github repository. We connected our web app to the github repository and we instructed the server to run a specific command upon starting the web app. This command will start running our server logic, this is why you can see the docs in your browser under `/docs`.  Next up, we will try to connect the Frontend to the Backend.
+おめでとうございます、あなたはあなたのWebアプリケーションにバックエンドを展開しました！これまでに行ったことを要約しましょう。
 
-### Integrate Azure Web App URL in GitHub Secrets
+まず、GitHubページを使用してWebアプリのFrontend（ユーザーインターフェイス）を展開しました。これは、GitHub Pagesに行くときに表示されるものです。フロントエンドは、画像を提供してロジックを実行するためにサーバーを必要としていました。これがAzure部品が入った場所です。最初に、ストレージリソースを作成しました。これは画像を保存する責任があります。次に、Webアプリリソースを作成しました。ここでは、サーバーロジックを実行します。サーバーロジックは、FastAPIと呼ばれるフレームワークを使用してPythonで記述されています。サーバーロジックコードは、EveryOneCancode GitHubリポジトリでホストされています。WebアプリをGitHubリポジトリに接続し、Webアプリを起動すると特定のコマンドを実行するようにサーバーに指示しました。このコマンドはサーバーロジックの実行を開始します。これが、「/docs」の下でブラウザ内のドキュメントを見ることができる理由です。次に、フロントエンドをバックエンドに接続しましょう。
 
-Now that we are sure that our backend service works as expected, we can bring everything together.
+### GitHub SecretsにAzure WebアプリURLを連携します
 
-To do this, we will use a GitHub feature called _Secrets_, where you can store your backend URL to make your frontend talk to the backend service.
+これでバックエンドサービスが期待どおりに機能することを確認できたので、すべてをまとめることができます。
 
-- On your Repository page in GitHub select _Settings_ and navigate to _Secrets and Variables_ > _Actions_.
+ここで、**_Secrets_** というGitHubの機能を使用します。ここでは、バックエンドURLを保存してフロントエンドをバックエンドサービスに通知することができます。
+
+- GitHubのリポジトリページで **_settings_** を選択し、**_secrets and variables_** -> **_actions_** に移動します。
 - Add a _New repository secret_ named `VITE_IMAGE_API_URL` and as value set `<your WebApp's URL>`.
-  > ⚠️⚠️ Your URL should end on a **/**. It should look like this: `https://xxxx.azurewebsites.net/` > ![GitHub Secrets Create](./images/light/VITE_IMAGE_API_URL.png)
+ -  **_New repository secret_** で **`VITE_IMAGE_API_URL`** と`ご自身のバックエンドのURL `をセットします。
+ >⚠️⚠️ あなたのURLは `https：// xxxx.azurewabsites.net/`となっているはずです。かならず最後に`/` を入れるのを忘れないようにしましょう>
+  
+  ![GitHub Secrets Create](./images/light/VITE_IMAGE_API_URL.png)
 
-### Run frontend Pipeline again
 
-For the change of adding the secret taking effect in the frontend, we need to run our build pipeline again so that the process can pickup the newly created setting.
+### フロントエンドパイプラインをもう一度実行します
 
-- Navigate to the _Actions_ tab, select the _pages_ workflow and rerun the workflow:
+フロントエンドで登録したシークレットを追加するには、プロセスが新しく作成された設定をピックアップできるように、ビルドパイプラインを再度実行する必要があります。
+
+ - **_Actions_** タブに移動し、**_pages_** ワークフローを選択して、ワークフローを再実行します。
   ![GitHub frontend Workflow](./images/light/RunWorkflowFrontend.png)
 
 - Once the workflow is started you will see the workflow running. You can get to the view below by clicking on the workflow run.
+ - ワークフローの実行をクリックして、以下のビューにアクセスできます。
   ![GitHub frontend Workflow Progress](./images/light/FrontendInProgress.png)
-- Finally finishing up the Milligram Service.
+  
+- 最後にMilligram サービスが終了します。
   ![GitHub frontend Workflow Done](./images/light/FrontendDone.png)
 
-### Open the App - Take a Selfie and review your News Feed
+### Milligramアプリケーションを開く - セルフィーを取り、ニュースフィードを確認しましょう
 
-Click on the frontend link displayed under the deploy step under your pipeline `https://<yourGithubHandle>.github.io/...` or reopen the App on your phone.
+パイプラインの下にデプロイステップの下に表示されるフロントエンドのURLリンクをクリックします `https：// <yourgithubhandle> .github.io/...`またはスマートフォンでアプリを更新します。
 
-Our frontend application should now have a new button with a camera symbol that allows us to take pictures. These pictures should then appear on the timeline or news feed.
+フロントエンドアプリケーションには、写真を撮ることができるカメラボタンが表示されます。撮った写真は、タイムラインまたはニュースフィードに表示されるのを確認しましょう。
 
-So go ahead and take at least 5 pictures and make sure they appear in your app. Make sure to share them with at least 1-2 friends so they can also upload their photos to your News Feed.
+少なくとも5枚の写真を撮って、それらがあなたのアプリに表示されることを確認してください。彼らがあなたのニュースフィードに写真をアップロードできるように、チーム内のメンバーと共有するようにしてください。
 
-That's a wrap for today. Congrats! 🎉
+おめてとうございます 🎉
 
-Tomorrow, we will make our app smart by adding artificial intelligence to it for detecting objects within your images as well as talking to our app.
+次は私たちはあなたの画像内に何が移っているのかをAIを使って識別したり、マイクを使ってアプリと話すことができるような機能を追加していきます。
 
-## Overcharged? We got you covered
+※ もしうまく動かなかったチームは サンプルのアプリケーション[Milligram](https://codeunicornmartha.github.io/FemaleAIAppInnovationEcosystem/#/?stack-key=a78e2b9a)で動作を見てください。
 
-Ask your coach if you did not succeed. We have you covered with a back up.
-
-### Use prepared Milligram backend Service
-
-Look at the prepared application with our pictures for you to play around [Milligram](https://codeunicornmartha.github.io/FemaleAIAppInnovationEcosystem/#/?stack-key=a78e2b9a).
 
 [◀ Previous challenge](../ApplicationPart1/README.md) | [🔼 Home](../../../README.md) | [Next challenge ▶](../../day2/Vision/README.md)

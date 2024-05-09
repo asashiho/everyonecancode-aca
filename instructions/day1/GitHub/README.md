@@ -4,10 +4,10 @@
 
 ## このパートで学ぶこと 🎯
 
-- GitHubでサインアップしてアカウントを作成する方法
-- GitHubのプロフィールを編集して写真をアップロードする方法
-- リポジトリをフォークする方法
-- 応用：独自のGitHubキャラクターを作る方法
+- GitHubでサインアップしてアカウントを作成する
+- GitHubのプロフィールを編集して写真をアップロードする
+- リポジトリをフォークする
+- 応用：独自のGitHubキャラクターを作る
 
 ## 目次
 
@@ -54,7 +54,6 @@ GitHubを知る上での大事なポイント: **Git** と **Hub**
 これはあなたのアカウントのトップページです。この概要は、リポジトリへの貢献、独自のリポジトリ、成果など、GitHubでのアクティビティに関するすべてを示しています。
 ![Profile page](./images/light/AccountFrontpage.png)
 
-To change or add any of your information, click on your icon in the top right corner and choose **Settings**. If you like, you can upload a profile picture here as well.
 情報を変更または追加したいときは、右上隅の **設定** アイコンをクリックします。ここでもプロフィール写真をアップロードできます。
 
 ![Top right user icon options popup](./images/light/Settings.png)

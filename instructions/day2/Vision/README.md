@@ -1,85 +1,79 @@
-# Challenge 5: Object Recognition
+# 課題5:オブジェクト認識
 
-⏲️ _est. time to complete: 30 min._ ⏲️
+⏲️ _完了までの時間: 30 min._ ⏲️
 
-## Here is what you will learn 🎯
+## このパートで学ぶこと 🎯
 
-In this challenge you will learn how to:
+- Azure AI servicesを作成します
+- Vision APIサービスをアプリと接続します
+- GitHub Secrets を使用してAPIキーをアプリに渡します
+- アプリでオブジェクト認識の機能が使えるのを確認します
 
-- Create a Vision API service in Azure
-- Connect you Vision API service with your app
-- Pass the API key to you app using GitHub Secrets
-- Start detecting objects with your app
+## 目次
 
-## Table of contents
+### 参考になる情報
 
-### Further informative resources
-
-- [What is a Resource / Resource Group / Subscription?](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
+- [ Resource / Resource Group / Subscription とは](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
 - [Vision API](https://azure.microsoft.com/en-us/products/cognitive-services/vision-services/)
-- [Regions and Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview)
+- [可用性ゾーンとは](https://docs.microsoft.com/azure/availability-zones/az-overview)
 - [GitHub Encrypted secrets](https://docs.GitHub.com/en/actions/reference/encrypted-secrets)
 
-## Getting started
+## はじめましょう
 
-- Navigate to your **Resource Group** we created on Day 1 during the previous challenges.
-- Create a new **Resource** and search for **Azure AI services**.
+- Azureポータルを開き、以前のチャレンジで作成したリソースグループに移動します。
+- **Azure AI services** を検索し、新しいリソース作成します。
   
   ![Screenshot of how to create a resource](./images/createresource1.png)
 
-## Create Computer Vision Cognitive Service
+## Azure AI servicesを作成します
 
-- Select **Cognitive Services** and hit **Create**.
-- Your subscription and resource group should already be set. Select **westeurope** as region and **Standard S0**.
-  ⚠️ Attention: westeurope is hardcoded - so make sure to have this resource in westeurope
-- Give the resource a unique name.
-- Hit **Review + create** and than **Create**.
+-  **Azure AI services** を選択し、**Create** をクリックします。
+- サブスクリプションとリソースグループは既に設定する必要があります。ここで、リージョンは **westeurope** にします。また、**Standard S0**を選択します。
+  ⚠️注意: westeuropeはハードコードされているので、このリソースは必ず **westeurope** で作成してください。
+- リソースにグローバルで一意の名前を付けます。
+- **Review + create** をクリックし内容に誤りが無いかを確認したうえで、**Create** をクリックしてリソースを作成します。
   ![Screenshot of Azure Portal create page for vision service](./images/createvisionresource.png)
-- After the resource is created, similar to the challenges on Day 1, copy this time only the key to store it in **GitHub Secrets**
-
+- リソースが作成された後、前回の課題と同様に、今回は **GitHub Secrets** に保存する **`Key`** と **`Endpoint`** をコピーします
 ![Screenshot of Access keys in Computer Vision service](./images/copykeys.png)
 
-## Integrate Computer Vision Service credentials into GitHub Secret
 
-You need to share the information of this resource with the web app, so that it can utilize the Computer Vision service's _intelligence_. Therefore, we will create two more GitHub Secret and share this with the app.
+## Azure AI servicesの資格情報をGithub Secretに統合します
 
-- Navigate to GitHub > Settings > Secrets > Actions and add a `New repository secret`.
-- Name: `VITE_VISION_API_KEY`
-- Value: The Key of your Computer Vision service you copied before
-- Add Secret.
+Azure AI services を利用できるように、このリソースの情報をWebアプリと共有する必要があります。さらに2つのGithub Secretを作成し、これをアプリと共有します。
+
+-  **GitHub -> Settings -> Secrets -> Actions** に移動し、**`New repository secret`** を追加します。
+   - Name: `VITE_VISION_API_KEY`
+   - Value: Azure AI servicesのキー
+- シークレットを追加します。
 
 ![Screenshot of creating secret](./images/action_custom_vision_secret.png)
 
-- Navigate to GitHub > Settings > Secrets > Actions and add a `New repository secret`.
-- Name: `VITE_VISION_API_ENDPOINT`
-- Value: The API endpoint of your Computer Vision service you copied before
-- Add Secret.
+-  **GitHub -> Settings -> Secrets -> Actions** に移動し、**`New repository secret`** を追加します。
+   - Name: `VITE_VISION_API_ENDPOINT`
+   - Value: Azure AI servicesのエンドポイント
+- シークレットを追加します。
 
 ![Screenshot of creating secret](./images/vision-api-endpoint-secret.png)
 
-## Run Frontend Pipeline again
+## フロントエンドパイプラインを再実行します
 
-- Navigate to **Actions** > **Pages** and **Run workflow**
+- **Actions -> Pages** を開き **Run workflow** に移動します。
   ![Screenshot of Actions page of github.com/microsoft/everyonecancode](./images/run-workflow.png)
 
-Click on the frontend link displayed under the deploy step under your pipeline `https://<yourgithubhandle>.github.io/...` or open the app on your phone.
+パイプラインの下にデプロイステップの下に表示されるフロントエンドリンクをクリックします 。
+`https://<ご自身のGitHubアカウント名>.github.io/...`
+またはスマートフォンでアプリを開きます。
 
-Our frontend application should now have a new button with an image symbol that allows us to detect our object on an image and have our object on the image recognized.
 
-Neither what picture you take nor what is detected will be saved and will **not** appear on the timeline or news feed.
+フロントエンドアプリケーションには、オブジェクト認識のための新しいボタンが表示されます。画像上のオブジェクトを検出し、画像上のオブジェクトを認識できるようにする必要があります。
 
-## Look around! What can your app detect? Play around
+※ この機能ではあなたが取った写真や検出されたものは保存されず、タイムラインやニュースフィードに表示されません。
 
-So go ahead and detect at least 5 objects and tell us how great your application detects objects on images.
+## 試してみてください！あなたのアプリは何を検出できますか？
 
-Take also a look at your detected objects or ask other people to compare how well their objects where detected, you might be surprised.
+何枚か写真を撮り、アプリケーションが画像上のオブジェクトを検出できているかを確認しましょう。
+その精度に驚かれるかもしれません😊
+
+※ もしうまく動かなかったチームは サンプルのアプリケーション[Milligram](https://codeunicornmartha.github.io/FemaleAIAppInnovationEcosystem/#/?stack-key=a78e2b9a)で動作を見てください。
 
 [◀ Previous challenge](../Github/README.md) | [🔼 Home](../../../README.md) | [Next challenge ▶](../../day2/Speech/README.md)
-
-### Overcharged? We got you covered
-
-Ask your coach if you did not succeed. We have you covered with a back up. ⚠️
-
-### Use prepared Milligram Backend Service
-
-Look at the prepared application with our pictures for you to play around [Milligram](https://microsoft.github.io/everyonecancode/).
