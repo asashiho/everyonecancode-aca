@@ -29,7 +29,9 @@
 
 -  **Azure AI services** を選択し、**Create** をクリックします。
 - サブスクリプションとリソースグループは既に設定する必要があります。ここで、リージョンは **westeurope** にします。また、**Standard S0**を選択します。
-  ⚠️注意: westeuropeはハードコードされているので、このリソースは必ず **westeurope** で作成してください。
+  
+  ⚠️注意: ハードコードされているので、このリソースは必ず **westeurope** で作成してください。
+
 - リソースにグローバルで一意の名前を付けます。
 - **Review + create** をクリックし内容に誤りが無いかを確認したうえで、**Create** をクリックしてリソースを作成します。
   ![Screenshot of Azure Portal create page for vision service](./images/createvisionresource.png)

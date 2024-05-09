@@ -62,9 +62,10 @@
 GitHubには、Webサイトを作成する機能(**GitHub Pages**) および更新を自動化する機能(**GitHub Actions**)があります。
 
 - リポジトリの***Actions**に移動します
-- _I understand my workflows, go ahead and enable them_ と書かれたボタンをクリックして、先に進み、GitHubアクションを有効にします
 
-_ [repository]（https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories）すべてのプロジェクトのファイルと各ファイルのファイルが含まれています改訂履歴。リポジトリ内でプロジェクトの作業について話し合い、管理できます。_
+- **_I understand my workflows, go ahead and enable them_** と書かれたボタンをクリックして、先に進み、GitHubアクションを有効にします
+
+_ [repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)にすべてのプロジェクトのファイルと各ファイルのファイルが含まれています。リポジトリ内でプロジェクトの作業について話し合い、管理できます。
 
 ![Enable GitHub Actions](./images/EnableGithubActions.png)
 
@@ -93,7 +94,6 @@ GitHub Actionsを使用して構築および展開したWebサイト( **frontend
   ![Repository Settings](./images/RepoSettingsTab.png)
 -  **Pages** に移動し、ブランチ `gh-pages` を選択し、**[Save]** ボタンをクリックします。
   ![Enable Pages](./images/FrontendPagesUpdated.png)
-- The deployment will take 1-2 minutes. After that, the Milligram website is
 - デプロイには1〜2分かかります。その後、Milligramアプリケーションは次のURLで確認できます。
   `https://<ご自身のGitHubアカウント名>.github.io/everyonecancode/`.
 
@@ -109,7 +109,6 @@ Milligramアプリケーションは、あなたがよく知っているかも�
 - あなた自身のプロフィールからGitHubアカウント情報を表示する
 - 写真を撮って画像を表示する
 - 写真の画像内のオブジェクトを検出し、画像の説明を作成します
-- Transcribe sentences you speak using Azure Speech Service (implemented on day 2)
 -  Azure Speech Serviceを使用してマイクで話した内容を文字に起こします
 
 今アプリは利用可能です。しかし、まだストレージやデータベースはありません。そのため、データを保存できません。そこで次のステップでこれらをインストールします。
@@ -138,7 +137,7 @@ Milligramアプリケーションは、あなたがよく知っているかも�
 
 アプリケーションは、フロントエンド（スマートフォンで表示されるもの）とバックエンド（情報を処理するもの）に分割できます。この場合、独自のソーシャルメディアアプリケーションを作成したいため、「ニュースフィード」のために写真を保存する必要があります。つまり、多くのファイルを保存する場所と、アプリケーションロジック（プログラミングコード）を実行する場所が必要です。
 
-ファイルを保存するには、**「Azure Storage Account」** を使用し、アプリケーションロジックを実行するには、**「Azure Web App」**を使用します。
+ファイルを保存するには、**「Azure Storage Account」** を使用し、アプリケーションロジックを実行するには、 **「Azure Web App」** を使用します。
 
 まず最初に -**「Azure Storage Account」** にサインします。
 
@@ -168,12 +167,10 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
 - **_Storage Account_** を検索し、**[_Create_]** ボタンをクリックします。
 - Azureポータルにログインするために使用した名前で、サブスクリプションとリソースグループを選択します。
 - Azureストレージアカウントの名前はグローバルで一意である必要があります。また、小文字と特殊文字は使用できません。
--  **「`Locally-redundant storage (LRS)`」** と **「`Standard`」**を選択してください。
+-  **「`Locally-redundant storage (LRS)`」** と **「`Standard`」** を選択してください。
   ![Storage](./images/light/BackendStorage1.png)
 -  **[_review_]** をクリックし、その後 **[_create_]** をクリックしてストレージアカウントを作成します。
-- Once the storage account is created there should be a button _Go to resource_. Click on it.
 - ストレージアカウントが作成されたら、**[_Go to resource_]** ボタンをクリックして、リソースに移動します。
-- Now you should see your storage account. Select _Containers_ on the left hand side.
 - これで、ストレージアカウントが表示されます。次に画像を入れるためのコンテナを作ります。左側の **[_Containers_]** を選択します。
 -  **[_new container_]** ボタンをクリックして、「`images`」という名前のコンテナを作成します。その他はデフォルトのままで問題ありません。
 
@@ -185,16 +182,18 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
 
 - Azureポータルのホームページにもう一度移動します。
 - **[_+ Create a resource_ ]** をクリックして、以前と同じようにリソースを作成します。
-- **_Web App_** を検索し、**[_Create_]**をクリックします。
+- **_Web App_** を検索し、**[_Create_]** をクリックします。
 - サブスクリプションとリソースグループを選択します。
  - 以下の画像のとおり設定してください。
-  - Name: `everyonecancode-backend-あなたの名前`
-  - Publish: `Code`
-  - Runtime stack: `Python 3.12`
-  - Operating System: `Linux`
-  - Region: `West Europe`
+  
+    - Name: `everyonecancode-backend-あなたの名前`
+    - Publish: `Code`
+    - Runtime stack: `Python 3.12`
+    - Operating System: `Linux`
+    - Region: `West Europe`
     ![backend 0](./images/light/BackendApp0.png)
-- 新しい **App Service Plan** を作成し、 `everyonecancode-plan-あなたの名前`。
+
+  - 新しい **App Service Plan** を作成します。名前は `everyonecancode-plan-あなたの名前` などとします。
   ![backend 1](./images/light/BackendApp1.png)
 - 価格のドロップダウンメニューで、無料の **Free F1** を選択します。そうしないと、料金が請求される場合があります。
 - 画面の下部にある **_review + create_** をクリックします。
@@ -215,11 +214,12 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
  -  ストレージにアクセスするためのキーは **_Access Keys_** 接続文字列は **_Connection String_** で確認できます。値を見るときは **_👀ShowKeys_** ボタンをおすと、その値をクリップボードにコピーできます。
   ![Screenshot of Access key page in Azure portal](./images/light/SecretAccessKeys.png)
  -  次に、Webアプリに戻って **[_Configuration_]** タブを開き、 **[_New connection string_]** をクリックして、次のとおり新しい接続文字列を作成します。
+   
   | Connection string | Type | Value |
   |-|-|-|
   | `STORAGE` | Custom | `コピーした接続文字列` |
+
 - **`ok`** と **`Save`** をクリックします。
-- Navigate and scroll down to the _CORS_ tab on the left hand side of your app service and enter `https://<YourGithubHandle>.github.io` under _Allowed Origins_.
 - 次に、左側メニューにある **_CORS_** タブまでスクロールし、 `https://<ご自身のGitHubアカウント名>.github.io` を**_Allowed Origins_** に入力します。
 - ふたたび **`Save`** をクリックして設定完了です
 
@@ -232,8 +232,7 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
 
 ただし、このモジュールはまだインストールされていません。インストールするために、アプリの起動時に実行される構成をWebアプリに提供し、ユーザーがアプリのデータと対話できるようにします。
 
--  **_settings_** の下の **_Configuration_**に移動します。
-- Under the tab **_General settings_** you should find the _Stack settings_. For our backend we are working with the programming language Python - more specifically Python 3.12.
+-  **_settings_** の下の **_Configuration_** に移動します。
 - タブの下にある **_General settings_** を確認します。バックエンドでは、プログラミング言語はPython、より具体的にはPython 3.12で作業しています。
 - **_Startup Command_** に「`gunicorn -k uvicorn.workers.uvicornworker`」を入力して **_save_** を押します。
   ![How to configure the Startup Command of the Web application](./images/light/AppServiceStartupCommand.png)
@@ -248,7 +247,7 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
 - AzureポータルのWebアプリの左側にある **_Deployment Center_** タブに移動します。
 -  **_settings_** タブの下で **_source_** として **_github_** を選択し、**_authorize_** をクリックします。
 -  **_organization_** でGitHubのアカウント名を選択し、**_repository_** で「`anyonecancode`」と「`main`」ブランチを選択します。
-- **`Save`**ボタンをクリックします。
+- **`Save`** ボタンをクリックします。
 
 **`Save`** ボタンを押すと、サービスはGitHubリポジトリにワークフローファイルを自動的に作成します。
 
@@ -265,7 +264,7 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
 
 - Azure ポータルからWebアプリサービスの左側の **_Overview_** タブに移動します。
   ![App Service URL](./images/light/AppServicesDocLink.png)
-- Hit on Default Domain, add `/docs` to the end, then test the website using the interactive documentation to figure out if the features of our Milligram will work.
+
  - **Default Domain** のURLの後ろに「/docs」を追加し、インタラクティブなドキュメントを使用してWebサイトをテストして、MilligramアプリケーションのAPIが動作するかどうかを確認します。
 
  URL: `http://everyonecancode-backend-xxxxx.azurewebsites.net/docs`
@@ -296,7 +295,6 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
 ここで、**_Secrets_** というGitHubの機能を使用します。ここでは、バックエンドURLを保存してフロントエンドをバックエンドサービスに通知することができます。
 
 - GitHubのリポジトリページで **_settings_** を選択し、**_secrets and variables_** -> **_actions_** に移動します。
-- Add a _New repository secret_ named `VITE_IMAGE_API_URL` and as value set `<your WebApp's URL>`.
  -  **_New repository secret_** で **`VITE_IMAGE_API_URL`** と`ご自身のバックエンドのURL `をセットします。
  >⚠️⚠️ あなたのURLは `https：// xxxx.azurewabsites.net/`となっているはずです。かならず最後に`/` を入れるのを忘れないようにしましょう>
   
@@ -310,8 +308,7 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
  - **_Actions_** タブに移動し、**_pages_** ワークフローを選択して、ワークフローを再実行します。
   ![GitHub frontend Workflow](./images/light/RunWorkflowFrontend.png)
 
-- Once the workflow is started you will see the workflow running. You can get to the view below by clicking on the workflow run.
- - ワークフローの実行をクリックして、以下のビューにアクセスできます。
+- ワークフローの実行をクリックして、以下のビューにアクセスできます。
   ![GitHub frontend Workflow Progress](./images/light/FrontendInProgress.png)
   
 - 最後にMilligram サービスが終了します。

@@ -1,4 +1,4 @@
-# 課題6: Chat Bot
+# 課題6: 生成AI Chat Bot
 
 ⏲️ _完了までの時間: 30 min._ ⏲️
 
@@ -11,7 +11,7 @@
 
 ## 目次
 
-- [課題6: Chat Bot](#課題6-chat-bot)
+- [課題6: 生成AI Chat Bot](#課題6-生成ai-chat-bot)
   - [このパートで学ぶこと 🎯](#このパートで学ぶこと-)
   - [目次](#目次)
     - [参考になる情報](#参考になる情報)
@@ -50,11 +50,13 @@
 - 次に、[Create new deployment]をクリックします。ここでは、展開するOpenAIモデルを選択します
   - モデル: **gpt-35-turbo** 
   - モデルバージョン: **Auto-update to default**
-- デプロイ名に一意の名前を付けて、**`[create]`**をクリックします。この名前は後で使用します。
+- デプロイ名に一意の名前を付けて、**`[create]`** をクリックします。この名前は後で使用します。
 
   ![Screenshot of Gpt turbo model deployment](./images/gpt-turbo-deployment.png)
 
-おめでとうございます！OpenAIのGPT3.5のモデルをMilligramアプリケーションに追加してチャットボットを作成します。
+おめでとうございます！
+
+これで、OpenAIのGPT3.5のモデル使ったチャットボットをMilligramアプリケーションに追加できました。
 
 実際にAzure内でテストして、いくつかの質問をすることができます。
 
@@ -96,7 +98,7 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
    - Name: `CHAT_API_KEY`
    - Value: Azure AI servicesのキー
 - シークレットを追加します。
-- 
+  
 - さらにもう一度 **`New repository secret`** を追加します。
    - Name: `AZURE_OPENAI_MODEL_NAME`
    - Value: Azure AI servicesのモデル名
@@ -126,4 +128,3 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
 フロントエンドアプリケーションには、アシスタントとチャットできるチャットボタンが表示されます。アシスタントは、Azure OpenAI でデプロイした大規模言語モデルが動いています。ぜひ最新のAIとのチャットを楽しんでください🎉
 
 
-Everyone Can Code💪
