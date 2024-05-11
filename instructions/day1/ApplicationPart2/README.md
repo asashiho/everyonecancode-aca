@@ -213,7 +213,7 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
 - まずストレージサービスの場所とキー情報を確認します。ストレージアカウントを検索することで作成したリソースを表示します。
  -  ストレージにアクセスするためのキーは **_Access Keys_** 接続文字列は **_Connection String_** で確認できます。値を見るときは **_👀ShowKeys_** ボタンをおすと、その値をクリップボードにコピーできます。
   ![Screenshot of Access key page in Azure portal](./images/light/SecretAccessKeys.png)
- -  次に、Webアプリに戻って **[_Configuration_]** タブを開き、 **[_New connection string_]** をクリックして、次のとおり新しい接続文字列を作成します。
+ -  次に、Webアプリに戻って **[_Environment variables_]** タブを開き、 **[_New connection string_]** をクリックして、次のとおり新しい接続文字列を作成します。
    
   | Connection string | Type | Value |
   |-|-|-|
@@ -234,7 +234,7 @@ Azure Blob Storageには好きなだけ多くの写真を保存でき、スト�
 
 -  **_settings_** の下の **_Configuration_** に移動します。
 - タブの下にある **_General settings_** を確認します。バックエンドでは、プログラミング言語はPython、より具体的にはPython 3.12で作業しています。
-- **_Startup Command_** に「`gunicorn -k uvicorn.workers.uvicornworker`」を入力して **_save_** を押します。
+- **_Startup Command_** に「`gunicorn -k uvicorn.workers.UvicornWorker`」を入力して **_save_** を押します。
   ![How to configure the Startup Command of the Web application](./images/light/AppServiceStartupCommand.png)
 
 

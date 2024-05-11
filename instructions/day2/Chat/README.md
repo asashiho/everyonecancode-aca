@@ -1,4 +1,4 @@
-# 課題6: 生成AI Chat Bot
+# 課題7: 生成AI Chat Bot
 
 ⏲️ _完了までの時間: 30 min._ ⏲️
 
@@ -11,7 +11,7 @@
 
 ## 目次
 
-- [課題6: 生成AI Chat Bot](#課題6-生成ai-chat-bot)
+- [課題7: 生成AI Chat Bot](#課題7-生成ai-chat-bot)
   - [このパートで学ぶこと 🎯](#このパートで学ぶこと-)
   - [目次](#目次)
     - [参考になる情報](#参考になる情報)
@@ -90,17 +90,17 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
 
 - Azure PortalからAzure OpenAIに作成したリソースを開きます。そして、**Keys and Endpoint**をクリックします。ここで、キーとエンドポイントをひかえます。
 - 次にGitHubのリポジトリに移動します。**GitHub -> Settings -> Secrets -> Actions** に移動し、**`New repository secret`** を追加します。
-   - Name: `CHAT_API_ENDPOINT`
+   - Name: `VITE_CHAT_API_ENDPOINT`
    - Value: Azure AI servicesのエンドポイント
 - シークレットを追加します。
 
 - 続いてもう一度 **`New repository secret`** を追加します。
-   - Name: `CHAT_API_KEY`
+   - Name: `VITE_CHAT_API_KEY`
    - Value: Azure AI servicesのキー
 - シークレットを追加します。
   
 - さらにもう一度 **`New repository secret`** を追加します。
-   - Name: `AZURE_OPENAI_MODEL_NAME`
+   - Name: `VITE_AZURE_OPENAI_MODEL_NAME`
    - Value: Azure AI servicesのモデル名
 - シークレットを追加します。
 
@@ -113,7 +113,7 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
         with:
           app-name: 'ご自身のアプリ名'
           slot-name: 'Production'  # Optional and needed only if the settings have to be configured on the specific deployment slot
-          app-settings-json: '[{ "name": "CHAT_API_KEY", "value": "${{ secrets.CHAT_API_KEY }}", "slotSetting": false }, { "name": "CHAT_API_ENDPOINT", "value":  "${{ secrets.CHAT_API_ENDPOINT }}", "slotSetting": false }, { "name": "AZURE_OPENAI_MODEL_NAME", "value": "${{ secrets.AZURE_OPENAI_MODEL_NAME }}", "slotSetting": false }]'
+          app-settings-json: '[{ "name": "CHAT_API_KEY", "value": "${{ secrets.VITE_CHAT_API_KEY }}", "slotSetting": false }, { "name": "CHAT_API_ENDPOINT", "value":  "${{ secrets.VITE_CHAT_API_ENDPOINT }}", "slotSetting": false }, { "name": "AZURE_OPENAI_MODEL_NAME", "value": "${{ secrets.VITE_AZURE_OPENAI_MODEL_NAME }}", "slotSetting": false }]'
         id: settings
 ```
 
