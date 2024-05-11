@@ -1,19 +1,19 @@
 title: Everyone Can Code
 patterns: ["**/*.md", "!**/node_modules", "!templates/**", "!frontend/**", "!Track_2_ToDo_App/**"]
-base: /everyonecancode/instructions/
+base: /everyonecancode/instructions/ja/
 themeConfig:
   repo: "microsoft/everyonecancode"
   editLinks: true
   sidebar:
     [
-      ["./", "Home"],
-      "./instructions/day1/GitHub/",
-      "./instructions/day1/ApplicationPart1/",
-      "./instructions/day1/ApplicationPart2/",
-      "./instructions/day1/ApplicationPart3/",
-      "./instructions/day2/Vision/",
-      "./instructions/day2/Speech/",
-      "./instructions/day2/Chat/",
+      ["./ja", "Home"],
+      "./instructions/ja/day1/GitHub/",
+      "./instructions/ja/day1/ApplicationPart1/",
+      "./instructions/ja/day1/ApplicationPart2/",
+      "./instructions/ja/day1/ApplicationPart3/",
+      "./instructions/ja/day2/Vision/",
+      "./instructions/ja/day2/Speech/",
+      "./instructions/ja/day2/Chat/",
     ]
 plugins: [["vuepress-plugin-code-copy", true]]
 
