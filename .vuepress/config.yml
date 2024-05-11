@@ -6,7 +6,7 @@ themeConfig:
   editLinks: true
   sidebar:
     [
-      ["./ja", "Home"],
+      ["./", "Home"],
       "./instructions/ja/day1/GitHub/",
       "./instructions/ja/day1/ApplicationPart1/",
       "./instructions/ja/day1/ApplicationPart2/",
