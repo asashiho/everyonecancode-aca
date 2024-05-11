@@ -25,14 +25,15 @@
    -  **Azure AI services** を選択し、**[Create]** をクリックします。
    - サブスクリプションとリソースグループは既に設定する必要があります。ここで、リージョンは **「westeurope」** にします。また、**「Standard S0」** を選択します。
   
-  >:warning: **注意**
-  ハードコードされているので、このリソースは必ず **westeurope** で作成してください。
+  ::: danger 注意
+  今回のサンプルアプリではハードコードされているので、必ず **westeurope** にリソースを作成してください。
+  :::
 
 - リソースにグローバルで一意の名前を付けます。
 - **[Review + create]** をクリックし、内容に誤りが無いかを確認したうえで、**[Create]** をクリックしてリソースを作成します。
   ![Screenshot of Azure Portal create page for vision service](./images/createvisionresource.png)
 
-2. リソースが作成された後、**[Keys and Endpoint]** をクリックし、  **`Key`** と **`Endpoint`** をコピーします。これらの値はあとで**GitHub Secrets** に保存するために必要です。値をひかえておいてください。
+1. リソースが作成された後、**[Keys and Endpoint]** をクリックし、  **`Key`** と **`Endpoint`** をコピーします。これらの値はあとで**GitHub Secrets** に保存するために必要です。値をひかえておいてください。
    ![Screenshot of Access keys in Computer Vision service](./images/copykeys.png)
 
 
@@ -40,7 +41,7 @@
 
 Azure AI services を利用できるように、このリソースの情報をWebアプリと共有する必要があります。さらに2つのGithub Secretを作成し、これをアプリと共有します。
 
-ブラウザでGitHubのリポジトリを開きます。**GitHub -> Settings -> Secrets -> Actions** に移動し、**`New repository secret`** を追加します。
+ブラウザでGitHubのリポジトリを開きます。**[GitHub] -> [Settings] -> [Secrets] -> [Actions]** に移動し、**[New repository secret]** を追加します。
 
   次のシークレットを追加します。
   |Name|Value|
@@ -67,12 +68,16 @@ Azure AI services を利用できるように、このリソースの情報をWe
 
 フロントエンドアプリケーションには、オブジェクト認識のための新しいボタンが表示されます。
 
-:computer: この機能ではあなたが取った写真や検出されたものは保存されず、タイムラインやニュースフィードに表示されません。
+::: tip
+この機能ではあなたが取った写真や検出されたものは保存されず、タイムラインやニュースフィードに表示されません。
+:::
 
 ## あなたのアプリは何を検出できましたか？
 
 何枚か写真を撮り、アプリケーションが画像上のオブジェクトを検出できているかを確認しててみましょう。
 その精度に驚かれるかもしれません:heart_eyes:
 
-:bulb: もしうまく動かなかったチームは サンプルの[Milligramアプリケーション](https://codeunicornmartha.github.io/FemaleAIAppInnovationEcosystem/#/?stack-key=a78e2b9a)で動作を見てください。
+::: warning
+もしうまく動かなかったチームは サンプルの[Milligramアプリケーション](https://codeunicornmartha.github.io/FemaleAIAppInnovationEcosystem/#/?stack-key=a78e2b9a)で動作を見てください。
+:::
 

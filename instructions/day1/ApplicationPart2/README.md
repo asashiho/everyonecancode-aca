@@ -58,7 +58,7 @@
 
 ### GitHub Actions を有効にします
 
-GitHubには、Webサイトを作成する機能 **「GitHub Pages」** および更新を自動化する機能 **「GitHub Actions」**があります。
+GitHubには、Webサイトを作成する機能 **「GitHub Pages」** および更新を自動化する機能 **「GitHub Actions」** があります。
 
 1. ブラウザでGitHubリポジトリを開き **[Actions]** タブに移動します
 
@@ -66,7 +66,11 @@ GitHubには、Webサイトを作成する機能 **「GitHub Pages」** およ�
 
 ![Enable GitHub Actions](./images/EnableGithubActions.png)
 
-[repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)にすべてのプロジェクトのファイルと各ファイルのファイルが含まれています。リポジトリ内でプロジェクトの作業を管理できます。
+
+::: tip サンプルのリポジトリ
+[repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)にすべてのプロジェクトのファイルと各ファイルのファイルが含まれています。
+:::
+
 
 ここで、**GitHub Actions** に読み取り/書き込み許可があることを確認してください。GitHubリポジトリの **[Settings]** -> **[Actions]** -> **[General]** をクリックし、**_WorkFlow Permissions_** セクションまでスクロールします。 **_read and write permissions_** オプションをクリックして、**[save]** ボタンをクリックします。
 
@@ -78,7 +82,7 @@ GitHubには、Webサイトを作成する機能 **「GitHub Pages」** およ�
 
 1. リポジトリの **[Actions]** タブで、**[pages]** ワークフローをクリックします。
    
-2. **[Run Workflow]** ドロップダウンを開き、**[Run Workflow]**ボタンをクリックして、ワークフローの実行を確認します。
+2. **[Run Workflow]** ドロップダウンを開き、**[Run Workflow]** ボタンをクリックして、ワークフローの実行を確認します。
 
 次に、ワークフローがどのように実行されているかを観察し、GitHubが実行する流れを見てみましょう。
 
@@ -163,29 +167,33 @@ Azure Storage Accountは、ニュースフィードの写真を「保存」す�
 
 Azure Blob Storageには好きなだけ多くの写真を保存でき、ストレージスペースを心配する必要がありません。
 
-> **Azure Resource**: 
-Azureの世界では、「リソース」はAzureが管理するエンティティを指します。たとえば、仮想マシン、仮想ネットワーク、およびストレージアカウントはすべてAzureリソースと呼ばれます。
 
-> **Azure Resource Group**: 
+::: tip Azure Resource
+Azureの世界では、「リソース」はAzureが管理するエンティティを指します。たとえば、仮想マシン、仮想ネットワーク、およびストレージアカウントはすべてAzureリソースと呼ばれます。
+:::
+
+::: tip Azure Resource Group
 リソースグループは、Azureソリューションに関連するリソースを保持するコンテナです。リソースグループには、ソリューション用のすべてのリソース、またはグループとして管理したいリソースのみを含めることができます。
+:::
 
 1. Azureポータルのホームページに移動します。
 2. **[+ Create a resource]** をクリックしてリソースを作成します。
 3. **[Storage Account]** を検索し、**[Create]** ボタンをクリックします。
-  + Azureポータルにログインするために使用した名前で、サブスクリプションとリソースグループを選択します。
-  + Azureストレージアカウントの名前はグローバルで一意である必要があります。また、小文字と特殊文字は使用できません。
-  + **「`Locally-redundant storage (LRS)`」** と **「`Standard`」** を選択してください。
-  ![Storage](./images/light/BackendStorage1.png)
+   + Azureポータルにログインするために使用した名前で、サブスクリプションとリソースグループを選択します。
+   + Azureストレージアカウントの名前はグローバルで一意である必要があります。また、小文字と特殊文字は使用できません。
+   + **「`Locally-redundant storage (LRS)`」** と **「`Standard`」** を選択してください。
+    ![Storage](./images/light/BackendStorage1.png)
 
 4  **[review]** をクリックし、その後 **[create]** をクリックしてストレージアカウントを作成します。
+
 5. ストレージアカウントが作成されたら、**[Go to resource]** ボタンをクリックして、リソースに移動します。
 
 6. これで、ストレージアカウントが表示されます。次に画像を入れるためのコンテナを作ります。左側の **[Containers]** を選択します。
-7. **[new container]** ボタンをクリックして、「`images`」という名前のコンテナを作成します。その他はデフォルトのままで問題ありません。
+7. **[new container]** ボタンをクリックして、 **「_images_」** という名前のコンテナを作成します。その他はデフォルトのままで問題ありません。
 
 ![](images/blob-container.png)
 
-ここで作成した`images` というコンテナは、Milligramアプリケーションからアップロードされた画像が保存される場所です。
+ここで作成した **「_images_」**  というコンテナは、Milligramアプリケーションからアップロードされた画像が保存される場所です。
 
 ### Webアプリを作成します
 
@@ -212,8 +220,8 @@ Azureの世界では、「リソース」はAzureが管理するエンティテ�
 7. 画面の下部にある **[review + create]** ボタンをクリックします。
 8. 表示されている情報を確認し、次の画面で **[create]** をクリックしてバックエンドアプリケーションを作成します。
 
-:::tip
-📝 確認ページでは、サービスの推定コストに関する情報があります。`Estimated price` を確認してください
+:::tip どのぐらいの料金が必要？
+確認ページでは、サービスの推定コストに関する情報があります。`Estimated price` を確認してください。
 :::
 
 ### ストレージとWebアプリを接続します
@@ -229,7 +237,7 @@ Azureの世界では、「リソース」はAzureが管理するエンティテ�
    ストレージにアクセスするためのキーは **_Access Keys_**、 接続文字列は **_Connection String_** で確認できます。値を見るときは **[ShowKeys👀]** ボタンをおすと、その値をクリップボードにコピーできます。
 ![Screenshot of Access key page in Azure portal](./images/light/SecretAccessKeys.png)
 
-1. Webアプリに戻って **[Environment variables]** タブを開き、 **[New connection string]** をクリックして、次のとおり新しい接続文字列を作成します。接続文字列は「DefaultEndpointsProtocol」から始まる文字列です。ここをご自身の値に置き換えてください。
+1. Webアプリに戻って **[Environment variables]** タブを開き、 **[New connection string]** をクリックして、次のとおり新しい接続文字列を作成します。接続文字列は「_DefaultEndpointsProtocol....._」から始まる文字列です。ここをご自身の値に置き換えてください。
    
   | Connection string | Type | Value |
   |-|-|-|
@@ -237,14 +245,17 @@ Azureの世界では、「リソース」はAzureが管理するエンティテ�
 
 3. **[ok]** と **[Save]** をクリックします。アプリを再起動してよいかというダイアログが表示されるので、 **[Yes]** をクリックします。
 
-> :triangular_flag_on_post:  **重要**
-> ここで登録した値を保存するのを忘れると設定が反映されないので注意してください！
+::: danger 重要
+ここで登録した値を保存するのを忘れると設定が反映されないのでアプリが正しく動きません。必ず保存して次に進んでください！
+:::
 
+1. 次に、左側メニューにある **[CORS]** タブまでスクロールし、 `https://<ご自身のGitHubアカウント名>.github.io` を **_Allowed Origins_** に入力します。
+ふたたび **[Save]** ボタンをクリックして設定完了です。
 
-4. 次に、左側メニューにある **[CORS]** タブまでスクロールし、 `https://<ご自身のGitHubアカウント名>.github.io` を **_Allowed Origins_** に入力します。
-ふたたび **[Save]** ボタンをクリックして設定完了です
-> :triangular_flag_on_post:  **重要**
-> ここで登録した値を保存するのを忘れると設定が反映されないので注意してください！
+::: danger 重要
+ここで登録した値を保存するのを忘れると設定が反映されないのでアプリが正しく動きません。必ず保存して次に進んでください！
+:::
+
 
 これで、ストレージアカウントとWebアプリが正常に接続され、相互に通信できるようになりました。
 
@@ -257,16 +268,17 @@ AzureポータルでWebアプリを開き、設定を変更します。
 
 1.  **[settings]** の下の **[Configuration]** に移動します。
 
-2. タブの下にある **_General settings_** を確認します。今回のサンプルアプリのバックエンドは、プログラミング言語はPython、より具体的にはPython 3.12でうごかしています。
+2. タブの下にある **_General settings_** を確認します。今回のサンプルアプリのバックエンドは、プログラミング言語はPython(Python 3.12)でうごかしています。
    
-  **_Startup Command_** に以下を入力して **[save]** ボタンをクリックします。
+  **_Startup Command_** に以下を入力して **[Save]** ボタンをクリックします。
 
   `gunicorn -k uvicorn.workers.UvicornWorker`
 
   ![How to configure the Startup Command of the Web application](./images/light/AppServiceStartupCommand.png)
 
-  > :triangular_flag_on_post:  **重要**
-> ここで登録した値を保存するのを忘れると設定が反映されないので注意してください！
+::: danger 重要
+ここで登録した値を保存するのを忘れると設定が反映されないのでアプリが正しく動きません。必ず保存して次に進んでください！
+:::
 
 
 ### GitHub Actionsを使ってMilligramアプリのバックエンドのコードをAzure Webアプリにデプロイします
@@ -281,11 +293,11 @@ AzureポータルでWebアプリを開き、設定を変更します。
 
 3.  **_organization_** でGitHubのアカウント名を選択し、**_repository_** で`「everyonecancode」`と`「main」`ブランチを選択します。
    
-4.  **`Save`** ボタンを押すと、サービスはGitHubリポジトリにワークフローファイルを自動的に作成します。
+4.  **[Save]** ボタンを押すと、サービスはGitHubリポジトリにワークフローファイルを自動的に作成します。
 
 このワークフローはすぐに実行され、約2分後にはWebアプリの準備が整います。
 
-GitHubリポジトリの **[Actions]** タブから進捗を確認す​​ることもできます。緑色は問題なく進んでいることを表しています。
+GitHubリポジトリの **[Actions]** タブから進捗を確認す​​ることもできます。緑色のアイコンは問題なく進んでいることを表しています。
 
 ![GitHub Actions status](./images/actions-status.png)
 
@@ -305,18 +317,18 @@ GitHubリポジトリの **[Actions]** タブから進捗を確認す​​る�
 
   ブラウザでは、次のように見えるはずです。**_GET/images_** エンドポイントを選択し、**「`Try it Out`」** をクリックして **`Execute`** をクリックします。200番の応答コードが返ってくると、正しく動いていることが確認できます。おめでとうございます！
 
-  ![Test API Page1](images/TestAPIGetImages-ex1.png)
-  ![Test API Page2](images/TestAPIGetImages-ex2.png)
-  ![Test API Page3](images/TestAPIGetImages-ex3.png)
+  ![Test API Page1](./images/TestAPIGetImages-ex1.png)
+  ![Test API Page2](./images/TestAPIGetImages-ex2.png)
+  ![Test API Page3](./images/TestAPIGetImages-ex3.png)
 
   :::tip
-  📝  OpenAPI についてさらに知りたいときは [Wikipedia](<https://en.wikipedia.org/wiki/OpenAPI_(software)>)を参考にしてください。
+  OpenAPI についてさらに知りたいときは [Wikipedia](<https://en.wikipedia.org/wiki/OpenAPI_(software)>)を参考にしてください。
   :::
 
  
 
   :::tip
-  📝 [Wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)のHTTP応答コードを見てください。2xxコードは一般に成功を意味し、4xxおよび5xxコードはさまざまな種類のエラーを示します。あなたはおそらく404をみたことがあるでしょう。これは「ページが見つかりません」という意味になります。
+  [Wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)のHTTP応答コードを見てください。2xxコードは一般に成功を意味し、4xxおよび5xxコードはさまざまな種類のエラーを示します。あなたはおそらく404をみたことがあるでしょう。これは「ページが見つかりません」という意味になります。
   :::
 
 <!-- ### 振り返り！私たちはこれまで何をしましたか？
@@ -335,8 +347,11 @@ GitHubリポジトリの **[Actions]** タブから進捗を確認す​​る�
  
 2.  **_New repository secret_** で **`VITE_IMAGE_API_URL`** と`ご自身のバックエンドのURL `を登録します。
   
- >:warning: あなたのURLは `https：// xxxx.azurewabsites.net/`となっているはずです。忘れてしまった人は、[「Milligramアプリが正しく実行されているかどうかを確認しよう」](#milligram%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%8F%E3%82%99%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%88%E3%82%99)の手順を見返してください。かならず最後に`/` を入れるのを忘れないようにしましょう
-  
+::: warning
+あなたのURLは `https：// xxxx.azurewabsites.net/`となっているはずです。忘れてしまった人は、[「Milligramアプリが正しく実行されているかどうかを確認しよう」](#milligram%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%8F%E3%82%99%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%88%E3%82%99)の手順を見返してください。かならず最後に`/` を入れるのを忘れないようにしましょう
+:::
+
+
   ![GitHub Secrets Create](./images/light/VITE_IMAGE_API_URL.png)
 
 
@@ -347,7 +362,7 @@ GitHubリポジトリの **[Actions]** タブから進捗を確認す​​る�
  1. ブラウザでGitHubのリポジトリを開き、**[Actions]** タブに移動し、**_pages_** ワークフローを選択して、ワークフローを再実行します。
   ![GitHub frontend Workflow](./images/light/RunWorkflowFrontend.png)
 
-  ワークフローの実行をクリックして、以下のビューにアクセスできます。
+  ワークフローの実行をクリックすると、以下の画面が表示されます。
   ![GitHub frontend Workflow Progress](./images/light/FrontendInProgress.png)
   
   問題なく完了すると、次の画面になります。
@@ -367,5 +382,6 @@ GitHubリポジトリの **[Actions]** タブから進捗を確認す​​る�
 
 次は私たちはあなたの画像内に何が移っているのかをAIを使って識別したり、マイクを使ってアプリと話すことができるような機能を追加していきます。
 
-:bulb: もしうまく動かなかったチームは サンプルの[Milligramアプリケーション](https://codeunicornmartha.github.io/FemaleAIAppInnovationEcosystem/#/?stack-key=a78e2b9a)で動作を見てください。
-
+::: warning
+もしうまく動かなかったチームは サンプルの[Milligramアプリケーション](https://codeunicornmartha.github.io/FemaleAIAppInnovationEcosystem/#/?stack-key=a78e2b9a)で動作を見てください。
+:::

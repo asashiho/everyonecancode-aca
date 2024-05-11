@@ -16,3 +16,14 @@ themeConfig:
       "./instructions/day2/Chat/",
     ]
 plugins: [["vuepress-plugin-code-copy", true]]
+
+locales: {
+    '/': {
+        lang: 'ja',
+        title: Everyone Can Code
+    },
+    '/en/': {
+        lang: 'en',
+        title: Everyone Can Code
+    }
+}

@@ -18,7 +18,7 @@
 
 1. **ソーシャルメディアアプリの作成**  - クールなソーシャルメディアアプリケーションを作りたい場合は、**[Click here to take a look at the sample app](https://microsoft.github.io/everyonecancode/)** にアクセスしてください！独自のアプリを展開および構成する方法を学びます。
 
-2.*TODOアプリを構築してコーディングを学ぶ**  - コーディングの基本を学びたいときは、**[Click here to take a look at the sample app](https://microsoft.github.io/everyonecancode/)** にアクセスしてください！Todoアプリを構築することにより、コーディングの基本を学ぶことができます。
+2.**TODOアプリを構築してコーディングを学ぶ**  - コーディングの基本を学びたいときは、**[Click here to take a look at the sample app](https://microsoft.github.io/everyonecancode/)** にアクセスしてください！Todoアプリを構築することにより、コーディングの基本を学ぶことができます。
 
 
 どちらを選んでも、コーディングの冒険に参加できます。さぁ始めましょう！🚀

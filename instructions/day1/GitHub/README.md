@@ -1,4 +1,4 @@
-# 課題 1: GitHub
+# 課題1: GitHub
 
 ⏲️ _完了までの時間: 45 min._ ⏲️
 
@@ -11,7 +11,7 @@
 
 ## 目次
 
-- [課題 1: GitHub](#課題-1-github)
+- [課題1: GitHub](#課題1-github)
   - [このパートで学ぶこと 🎯](#このパートで学ぶこと-)
   - [目次](#目次)
   - [サインアップしてGitHubアカウントで作成します](#サインアップしてgithubアカウントで作成します)
@@ -19,7 +19,7 @@
     - [プロフィール写真をアップロードして、名前を入力します](#プロフィール写真をアップロードして名前を入力します)
   - [リポジトリのフォーク](#リポジトリのフォーク)
   - [CodeSpace の作成](#codespace-の作成)
-  - [応用：独自のOctocatを作成しましょう](#応用独自のoctocatを作成しましょう)
+  - [:cat: オリジナルのOctocatを作成しましょう](#cat-オリジナルのoctocatを作成しましょう)
 
 
 ## サインアップしてGitHubアカウントで作成します
@@ -36,13 +36,13 @@ GitHubを知る上での大事なポイント: **Git** と **Hub**
 
 </details>
 
--  [GitHub Webサイト](https://github.com/) に移動し、GitHubアカウントを作成します。
-- メールアドレス、パスワード、希望するユーザー名を追加します
+1.  [GitHub Webサイト](https://github.com/) に移動し、GitHubアカウントを作成します。
+2. メールアドレス、パスワード、希望するユーザー名を追加します
   ![Startpage of GitHub](./images/light/GithubSignUp.png)
   ![Enter your Email page](./images/light/EnterEmail.png)
-- 新製品の更新とアナウンスについてGitHubからメールを受信したいときは、 **「y」** そうでないときは **「n」** を入力します。
+3. 新製品の更新とアナウンスについてGitHubからメールを受信したいときは、 **「y」** そうでないときは **「n」** を入力します。
   ![Announcement confirmation page](./images/light/NoAnnouncements.png)
-- アカウントを確認するには、指示に従ってください。
+4. アカウントを確認するには、指示に従ってください。
   ![Verification page](./images/light/Verification.png)
 
 これで、GitHubアカウントを正常に作成しました。次は、あなたのプロフィールを編集してあなた自身のものにしましょう。
@@ -92,11 +92,11 @@ GitHubアカウントを正常に作成およびカスタマイズし、CodeSpac
 最初にコードを変更し、最初のプルリクエストを作成してマージします。
 
 
-## 応用：独自のOctocatを作成しましょう
+## :cat: オリジナルのOctocatを作成しましょう
 
 Octocatは、GitHubの公式マスコットであり、かわいい猫のようなタコのようなユニークな生き物です。OctocatはGitHubコミュニティの愛されているシンボルになり、商品、イベント、ソーシャルメディアに現れます。
 
-早めに終了した人たちの挑戦として、 [https://myoctocat.com](https://myoctocat.com/) で **「Octocat Builder」**を使用して、独自のOctocatをデザインしてみましょう。このツールを使用すると、Octocatの色、形状、アクセサリーをカスタマイズし、他の人と共有できます。
+早めに終了した人たちのチャレンジ課題として、**「[Octocat Builder](https://myoctocat.com)」** を使用して、独自のOctocatをデザインしてみましょう。このツールを使用すると、Octocatの色、形状、アクセサリーをカスタマイズし、他の人と共有できます。
 
 
 あなたのOctocatをあなたの個人的なアバター、あなたの分身と考えてください。ファンキーなヘアスタイル、クールな衣装、または風変わりなアクセサリーを試してください。
