@@ -18,7 +18,7 @@ themeConfig:
 plugins: [["vuepress-plugin-code-copy", true]]
 
 locales: {
-    '/ja': {
+    '/ja/': {
         lang: 'ja',
         title: Everyone Can Code
     },
