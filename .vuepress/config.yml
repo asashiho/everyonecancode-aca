@@ -22,7 +22,7 @@ themeConfig:
         editLinks: true
         sidebar:
           [
-            ["./", "Home"],
+            ["./instructions/en/", "Home"],
             "./instructions/en/day1/GitHub/",
             "./instructions/en/day1/ApplicationPart1/",
             "./instructions/en/day1/ApplicationPart2/",
