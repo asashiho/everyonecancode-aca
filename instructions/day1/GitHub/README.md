@@ -40,7 +40,7 @@ GitHubを知る上での大事なポイント: **Git** と **Hub**
 - メールアドレス、パスワード、希望するユーザー名を追加します
   ![Startpage of GitHub](./images/light/GithubSignUp.png)
   ![Enter your Email page](./images/light/EnterEmail.png)
-- 新製品の更新とアナウンスについてGitHubからメールを受信したいときは、 **y** そうでないときは **n** を入力します。
+- 新製品の更新とアナウンスについてGitHubからメールを受信したいときは、 **「y」** そうでないときは **「n」** を入力します。
   ![Announcement confirmation page](./images/light/NoAnnouncements.png)
 - アカウントを確認するには、指示に従ってください。
   ![Verification page](./images/light/Verification.png)
@@ -73,18 +73,17 @@ GitHubを知る上での大事なポイント: **Git** と **Hub**
 
 GitHub CodeSpacesは、ブラウザから直接コーディングできるクラウドベースの開発環境です。また、ご自身のパソコンのVisual Studio Codeから接続することもできます。
 
-In your forked repository, click on the green button that says **<> Code**, go to the **Codespaces** tab an click on **Create codespace on main**. Let's do it!
-フォークリポジトリで、**<> Code** と書かれた緑色のボタンをクリックして、**Codespaces** に移動し**Create codespace on main** をクリックします。やってみましょう！
+フォークリポジトリで、**[<> Code]** と書かれた緑色のボタンをクリックして、**Codespaces** に移動し **[Create codespace on main]** をクリックします。やってみましょう！
 
 ![Create codespace on main](./images/light/CreateCodespace.png)
 
 
-数秒後、新しいブラウザのウィンドウが開きます。右下隅には、このリポジトリに推奨される拡張機能をインストールするかどうかを尋ねるポップアップが表示されるので**Install** をクリックします。
+数秒後、新しいブラウザのウィンドウが開きます。右下隅には、このリポジトリに推奨される拡張機能をインストールするかどうかを尋ねるポップアップが表示されるので **[Install]** をクリックします。
 
 ![Install recommended extensions](./images/light/InstallRecommendedExtensions.png)
 
 
-CodeSpace の別のタブを開き、Azure関数とPython用の拡張機能をインストールします。左上にある**Explorer** タブに戻ると、リポジトリのフォルダー構造を再度表示できます。
+CodeSpace の別のタブを開き、Azure関数とPython用の拡張機能をインストールします。左上にある **[Explorer]** タブに戻ると、リポジトリのフォルダー構造を再度表示できます。
 
 ![Explorer tab](./images/light/ExplorerTab.png)
 
@@ -97,11 +96,9 @@ GitHubアカウントを正常に作成およびカスタマイズし、CodeSpac
 
 Octocatは、GitHubの公式マスコットであり、かわいい猫のようなタコのようなユニークな生き物です。OctocatはGitHubコミュニティの愛されているシンボルになり、商品、イベント、ソーシャルメディアに現れます。
 
-早めに終了した人たちにとっての挑戦として、 [https://myoctocat.com](https://myoctocat.com/) でOctocat Builderを使用して、独自のOctocatをデザインしてみましょう。このツールを使用すると、Octocatの色、形状、アクセサリーをカスタマイズし、他の人と共有できます。
+早めに終了した人たちの挑戦として、 [https://myoctocat.com](https://myoctocat.com/) で **「Octocat Builder」**を使用して、独自のOctocatをデザインしてみましょう。このツールを使用すると、Octocatの色、形状、アクセサリーをカスタマイズし、他の人と共有できます。
 
 
 あなたのOctocatをあなたの個人的なアバター、あなたの分身と考えてください。ファンキーなヘアスタイル、クールな衣装、または風変わりなアクセサリーを試してください。
 
-さあ、楽しみにして、あなたが作ったものを見せてください！
-
-[🔼 Home](../../../README.md) | [Next challenge ▶](../ApplicationPart1/README.md)
+そして、あなたが作ったものをみんなに共有してください！

@@ -14,66 +14,64 @@
 - [課題7: 生成AI Chat Bot](#課題7-生成ai-chat-bot)
   - [このパートで学ぶこと 🎯](#このパートで学ぶこと-)
   - [目次](#目次)
-    - [参考になる情報](#参考になる情報)
-  - [はじめましょう](#はじめましょう)
+    - [参考情報](#参考情報)
   - [Openai Azure Service インスタンスを作成します](#openai-azure-service-インスタンスを作成します)
   - [OpenAIの大規模言語モデルのデプロイ](#openaiの大規模言語モデルのデプロイ)
-  - [Azure OpenAI 資格情報](#azure-openai-資格情報)
-    - [オプション1：OpenAI Azure資格情報をWebアプリに追加する](#オプション1openai-azure資格情報をwebアプリに追加する)
-    - [オプション2：Azure OpenAIの資格情報をGitHub Secretに統合する](#オプション2azure-openaiの資格情報をgithub-secretに統合する)
-  - [フロントエンドパイプラインを再実行します](#フロントエンドパイプラインを再実行します)
+  - [Azure AI servicesの資格情報をGithub Secretに統合します](#azure-ai-servicesの資格情報をgithub-secretに統合します)
+  - [フロントエンドパイプラインとバックエンドパイプラインを再実行します](#フロントエンドパイプラインとバックエンドパイプラインを再実行します)
 
-### 参考になる情報
+
+### 参考情報
 
 - [Azure OpenAI ドキュメント](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
 
 
-## はじめましょう
-- Azureポータルを開き、以前のチャレンジで作成したリソースグループに移動します。
-- **Azure OpenAI** を検索し、新しいリソース作成します。
-    ![Screenshot of how to create a resource](./images/resource-azure-openai.png)
-
-
 ## Openai Azure Service インスタンスを作成します
 
--  **Azure AI services** を選択し、**Create** をクリックします。
-- サブスクリプションとリソースグループは既に設定する必要があります。ここで、リージョンは **westeurope** にします。また、**Standard S0**を選択します。
-- リソースにグローバルで一意の名前を付けます。
-- **Next** をクリックして、ネットワークで「インターネットを含むすべてのネットワークがこのリソースにアクセスできる」を選択してください。
-- **Next** をクリックしてリソースを作成します
-  ![Screenshot of Azure Portal create page for openAI Azure](./images/resource-azure-openai-settings.png)
-  ![Screenshot of Azure Portal create page for openAI Azure, networking](./images/resource-azure-openai-network.png)
+1. Azureポータルを開き、以前のチャレンジで作成したリソースグループに移動します。
+   
+2. **Azure OpenAI** を検索し、新しいリソース作成します。
+   **「Azure AI services」** を選択し、**Create** をクリックして以下の値を登録します。
+    ![Screenshot of how to create a resource](./images/resource-azure-openai.png)
+
+   - サブスクリプションとリソースグループを選択します。
+   - リージョンは **westeurope** にします。また、**Standard S0**を選択します。
+   - リソースにグローバルで一意の名前を付けます。
+   - - **[Next]** をクリックして、ネットワークで **「インターネットを含むすべてのネットワークがこのリソースにアクセスできる」** を選択してください。
+   - **[Next]** をクリックしてリソースを作成します
+    ![Screenshot of Azure Portal create page for openAI Azure](./images/resource-azure-openai-settings.png)
+    ![Screenshot of Azure Portal create page for openAI Azure, networking](./images/resource-azure-openai-network.png)
 
 
 ## OpenAIの大規模言語モデルのデプロイ
-- 作成したAzure openAI リソースに移動して、**Model deployments** をクリックします
-- 次に、[Create new deployment]をクリックします。ここでは、展開するOpenAIモデルを選択します
-  - モデル: **gpt-35-turbo** 
-  - モデルバージョン: **Auto-update to default**
-- デプロイ名に一意の名前を付けて、**`[create]`** をクリックします。この名前は後で使用します。
+これで、Azure OpenAI Serviceのリソースが作成できたので、次は大規模言語モデルをデプロイします。
+
+1. 作成したAzure openAI リソースに移動して、**[Model deployments]** をクリックします
+2. 次に、 **[Create new deployment]** をクリックします。ここでは、展開するOpenAIモデルを選択します
+   - モデル: **gpt-35-turbo** 
+   - モデルバージョン: **Auto-update to default**
+
+3. デプロイ名に一意の名前を付けて、**[create]** をクリックします。この名前は後で使用します。
 
   ![Screenshot of Gpt turbo model deployment](./images/gpt-turbo-deployment.png)
 
-おめでとうございます！
 
-これで、OpenAIのGPT3.5のモデル使ったチャットボットをMilligramアプリケーションに追加できました。
+実際にAzure内で生成AIとのチャットを試すことができます。
 
-実際にAzure内でテストして、いくつかの質問をすることができます。
-
-デプロイしたモデルに移動して、**Open in Playground** をクリックすると、チャットアシスタントとチャットできます。**Configuration > Parameters** の下でモデルのパラメーターを変更することもできます
+デプロイしたモデルに移動して、**[Open in Playground]** をクリックすると、チャットアシスタントとチャットできます。**[Configuration] > [Parameters]** の下でトークン数などのモデルのパラメーターを変更することもできます
  
 ![Screenshot of Gpt turbo model playground](./images/gpt-playground.png)
 
 
-## Azure OpenAI 資格情報
+## Azure AI servicesの資格情報をGithub Secretに統合します
 
-ユーザーインターフェイスをOpenAIモデルと接続するには、Azure OpenAIの資格情報を統合する必要があります。
+Milligramアプリケーションにチャット機能を追加するには、Azure AI servicesの資格情報を統合する必要があります。
 
-このためには、2つのオプションがあります。
+<!-- このためには、2つのオプションがあります。
 + オプション1: Azure WebAppsにキーを追加
-+ オプション2: GitHub Workflow にキーを追加
++ オプション2: GitHub Workflow にキーを追加 -->
 
-### オプション1：OpenAI Azure資格情報をWebアプリに追加する
+<!-- ### オプション1：OpenAI Azure資格情報をWebアプリに追加する
 Azureに戻り、MilligramのWebアプリをもう一度開きます。
 
 -  **environment variables** に移動します。
@@ -82,31 +80,27 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
 - 最後に変数 **AZURE_OPENAI_MODEL_NAME** を作成し、Azure OpenAIで作成したモデルのデプロイ名を貼り付けます。
 
 ![Screenshot of Gpt turbo model playground](./images/milligram-env-vars.png)
+ -->
 
+<!-- ### オプション2：Azure OpenAIの資格情報をGitHub Secretに統合する -->
 
-### オプション2：Azure OpenAIの資格情報をGitHub Secretに統合する
+前の課題と同様に、3つのGitHub Secretを追加します。
 
-前の課題と同様に、GitHub Secretを追加します。
-
-- Azure PortalからAzure OpenAIに作成したリソースを開きます。そして、**Keys and Endpoint**をクリックします。ここで、キーとエンドポイントをひかえます。
-- 次にGitHubのリポジトリに移動します。**GitHub -> Settings -> Secrets -> Actions** に移動し、**`New repository secret`** を追加します。
-   - Name: `VITE_CHAT_API_ENDPOINT`
-   - Value: Azure AI servicesのエンドポイント
-- シークレットを追加します。
-
-- 続いてもう一度 **`New repository secret`** を追加します。
-   - Name: `VITE_CHAT_API_KEY`
-   - Value: Azure AI servicesのキー
-- シークレットを追加します。
+1. AzureポータルからAzure OpenAIに作成したリソースを開きます。そして、**Keys and Endpoint**をクリックします。ここで、キーとエンドポイントをひかえます。
   
-- さらにもう一度 **`New repository secret`** を追加します。
-   - Name: `VITE_AZURE_OPENAI_MODEL_NAME`
-   - Value: Azure AI servicesのモデル名
-- シークレットを追加します。
+2. 次にブラウザでGitHubのリポジトリを開きます。**GitHub -> Settings -> Secrets -> Actions** に移動し、**`New repository secret`** を追加します。
 
-そして、GitHubワークフローにシークレットを追加します。
+  次の３つのシークレットを追加します。
 
-1. **.github/workflows/main_milligram.yml** にあるファイルの74行目あたりにある `subscription-id` の下に次のコードスニペットを追加します。
+  |Name|Value|
+  |-|-|
+  |VITE_CHAT_API_KEY|Azure AI servicesのKey|
+  |VITE_CHAT_API_ENDPOINT|Azure AI servicesのEndpoint|
+  |VITE_AZURE_OPENAI_MODEL_NAME|Azure AI servicesのモデル名|
+
+
+3. 次に、GitHubワークフローにシークレットを追加します。
+   **.github/workflows/main_milligram.yml** にあるファイルの74行目あたりにある `subscription-id` の下に次のコードスニペットを追加します。
    
 ```yaml
       - uses: azure/appservice-settings@v1
@@ -117,14 +111,17 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
         id: settings
 ```
 
-## フロントエンドパイプラインを再実行します
+## フロントエンドパイプラインとバックエンドパイプラインを再実行します
+
+登録したシークレットを追加するには、ビルドパイプラインを再度実行する必要があります。
 
 - **Actions -> Pages** を開き **Run workflow** に移動します。
-
-パイプラインの下にデプロイステップの下に表示されるフロントエンドリンクをクリックします 。
-`https://<ご自身のGitHubアカウント名>.github.io/...`
-またはスマートフォンでアプリを開きます。
-
-フロントエンドアプリケーションには、アシスタントとチャットできるチャットボタンが表示されます。アシスタントは、Azure OpenAI でデプロイした大規模言語モデルが動いています。ぜひ最新のAIとのチャットを楽しんでください🎉
+- **Actions -> Build and deploy Python app to Azure Web App** を開き **Run workflow** に移動します。
 
 
+パイプラインの下にデプロイステップの下に表示されるフロントエンドのURLリンクをクリックするか、スマートフォンでアプリを更新します。
+
+`https://<ご自身のGitHubアカウント名>.github.io/everyonecancode`
+
+
+フロントエンドアプリケーションには、アシスタントとチャットできるチャットボタンが表示されます。チャットのアシスタントは、Azure OpenAI でデプロイした大規模言語モデルが動いています。ぜひ最新の生成AIとのチャットを楽しんでください:robot:
