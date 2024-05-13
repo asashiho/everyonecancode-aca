@@ -1,0 +1,47 @@
+name: Trigger auto deployment for everyonecancode-aca
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ main ]
+    paths:
+    - '**'
+    - '.github/workflows/everyonecancode-aca-AutoDeployTrigger-00e61cc9-1579-4c17-8b9b-c8614b870b3c.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:      
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.EVERYONECANCODEACA_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.EVERYONECANCODEACA_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.EVERYONECANCODEACA_AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }} 
+          registryUrl: everyonecancode0513.azurecr.io
+          registryUsername: ${{ secrets.EVERYONECANCODEACA_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.EVERYONECANCODEACA_REGISTRY_PASSWORD }}
+          containerAppName: everyonecancode-aca
+          resourceGroup: everyonecancode
+          imageToBuild: everyonecancode0513.azurecr.io/everyonecancode-aca:${{ github.sha }}
+          _buildArgumentsKey_: |
+            _buildArgumentsValues_
+
+
