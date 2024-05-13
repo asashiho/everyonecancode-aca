@@ -24,9 +24,9 @@
   - [Milligramアプリケーションバックエンド](#milligramアプリケーションバックエンド)
     - [Azureにログインします](#azureにログインします)
     - [Azure Storage Accountを作成します](#azure-storage-accountを作成します)
+    - [コンテナレジストリを作成します](#コンテナレジストリを作成します)
     - [Webアプリを作成します](#webアプリを作成します)
-    - [ストレージとWebアプリを接続します](#ストレージとwebアプリを接続します)
-    - [Azure Webアプリの構成](#azure-webアプリの構成)
+    - [Azure Container Appsの設定変更](#azure-container-appsの設定変更)
     - [GitHub Actionsを使ってMilligramアプリのバックエンドのコードをAzure Webアプリにデプロイします](#github-actionsを使ってmilligramアプリのバックエンドのコードをazure-webアプリにデプロイします)
     - [Milligramアプリが正しく実行されているかどうかを確認しよう](#milligramアプリが正しく実行されているかどうかを確認しよう)
     - [GitHub SecretsにAzure WebアプリURLを連携します](#github-secretsにazure-webアプリurlを連携します)
@@ -147,7 +147,7 @@ Milligramアプリケーションは、あなたがよく知っているかも�
 
 アプリケーションバックエンドは、アップロードされた写真を受け取り、それらを保存し、必要に応じて返します。
 
-今回は、ファイルを保存するために、**[Azure Storage Account](https://learn.microsoft.com/ja-jp/azure/storage/common/storage-account-overview)** を使用し、アプリケーションロジックを実行するには、 **[Azure Web Apps](https://azure.microsoft.com/ja-jp/products/app-service/web)** を使用します。
+今回は、ファイルを保存するために、**[Azure Storage Account](https://learn.microsoft.com/ja-jp/azure/storage/common/storage-account-overview)** を使用し、アプリケーションロジックを実行するには、 **[Azure Container Apps](https://azure.microsoft.com/ja-jp/products/container-apps)** を使用します。
 
 
 ### Azureにログインします
@@ -193,97 +193,80 @@ Azureの世界では、「リソース」はAzureが管理するエンティテ�
 
 6. これで、ストレージアカウントが表示されます。次に画像を入れるためのコンテナを作ります。左側の **[Containers]** を選択します。
 7. **[new container]** ボタンをクリックして、 **`images`** という名前のコンテナを作成します。その他はデフォルトのままで問題ありません。
-
-![](images/blob-container.png)
-
-ここで作成した **`images`**  というコンテナは、Milligramアプリケーションからアップロードされた画像が保存される場所です。
-
-### Webアプリを作成します
-
-[Azure Web App](https://learn.microsoft.com/en-us/azure/static-web-apps/)は、Microsoftが管理するコンピューターで、ソフトウェアの更新を心配することなく簡単に独自のWebアプリケーションを実行できる便利なサービスです。
-
-1. Azureポータルのホームページにもう一度移動します。
-2. **[+ Create a resource]** をクリックして、以前と同じようにリソースを作成します。
-   
-3. **「Web Apps」**(日本語の場合は「Webアプリ」)  を検索し、**[Create]** をクリックします。
-![](./images/create-webapps.png)
-
-4. サブスクリプションとリソースグループを選択し、以下の画像のとおり設定してください。
+  ![](./images/blob-container.png)
   
-    - Name: `everyonecancode-backend-あなたの名前`
-    - Publish: `Code`
-    - Runtime stack: `Python 3.12`
-    - Operating System: `Linux`
-    - Region: `West Europe`
-    ![backend 0](./images/light/BackendApp0.png)
+  ここで作成した **`images`**  というコンテナは、Milligramアプリケーションからアップロードされた画像が保存される場所です。
 
-5. App Service Planのところで **[Create new]** をクリックして、新しい **App Service Plan** を作成します。名前は `everyonecancode-plan-あなたの名前` とします。
-  ![backend 1](./images/light/BackendApp1.png)
-
-6. 価格のドロップダウンメニューで、無料の **Free F1** を選択します。ほかにもAzureには[無料で使えるサービス](https://azure.microsoft.com/ja-jp/pricing/free-services)がいくつかあります。是非チェックしてみてください。
-
-7. 画面の下部にある **[review + create]** ボタンをクリックします。
-8. 表示されている情報を確認し、次の画面で **[create]** をクリックしてバックエンドアプリケーションを作成します。
-
-:::tip どのぐらいの料金が必要？
-確認ページでは、サービスの推定コストに関する情報があります。`Estimated price` を確認してください。
-:::
-
-### ストレージとWebアプリを接続します
-
-それでは、アプリケーションをストレージに接続して、スマートフォンで写真を撮って保管できるようにしましょう。
-
-ます、ストレージサービスの場所をWebアプリケーションに伝える必要があります。
-アプリケーションは、ストレージアカウントへの接続を構成するために外部構成を取得できます。
-
-
-1. ストレージサービスの場所とキー情報を確認します。ストレージアカウントを検索することで作成したリソースを表示します。
+8. ストレージサービスの場所とキー情報を確認します。ストレージアカウントを検索することで作成したリソースを表示します。
    
    ストレージにアクセスするためのキーは **`Access Keys`**、 接続文字列は **`Connection String`** で確認できます。値を見るときは **[ShowKeys👀]** ボタンをおすと、その値をクリップボードにコピーできます。
 ![Screenshot of Access key page in Azure portal](./images/light/SecretAccessKeys.png)
 
-1. Webアプリに戻って **[Environment variables]** タブを開き、 **[New connection string]** をクリックして、次のとおり新しい接続文字列を作成します。接続文字列は `DefaultEndpointsProtocol.....` から始まる文字列です。ここをご自身の値に置き換えてください。
-   
-  | Connection string | Type | Value |
-  |-|-|-|
-  | `STORAGE` | Custom | `DefaultEndpointsProtocol=https;AccountName=xxx;AccountKey=xxx;EndpointSuffix=core.windows.net` |
+この接続情報`Connection String`は、後でコンテナアプリケーションに追加する必要があるので、ひかえておいてください。
 
-3. **[ok]** と **[Save]** をクリックします。アプリを再起動してよいかというダイアログが表示されるので、 **[Yes]** をクリックします。
+### コンテナレジストリを作成します
 
-::: danger 重要
-ここで登録した値を保存するのを忘れると設定が反映されないのでアプリが正しく動きません。必ず保存して次に進んでください！
-:::
+[Azure Container Registry](https://azure.microsoft.com/ja-jp/products/container-apps)は、Microsoftが管理するコンテナレジストリサービスです。コンテナイメージの管理ができます。
 
-1. 次に、左側メニューにある **[CORS]** タブまでスクロールし、 `https://<ご自身のGitHubアカウント名>.github.io` を **_Allowed Origins_** に入力します。
-ふたたび **[Save]** ボタンをクリックして設定完了です。
+1. Azureポータルのホームページにもう一度移動します。
+2. **[+ Create a resource]** をクリックして、以前と同じようにリソースを作成します。
 
-::: danger 重要
-ここで登録した値を保存するのを忘れると設定が反映されないのでアプリが正しく動きません。必ず保存して次に進んでください！
-:::
+3. **「Azure Container Registry」** をクリックします。
 
+4. サブスクリプションとリソースグループを選択し、以下のとおり設定してください。
+  
+    - Registry Name: `everyonecancodeあなたの名前`
+    - Location: `West Europe`
+    - Pricing plan: `Standard`
 
-これで、ストレージアカウントとWebアプリが正常に接続され、相互に通信できるようになりました。
+5. 画面の下部にある **[review + create]** ボタンをクリックします。
+6. 表示されている情報を確認し、次の画面で **[create]** をクリックしコンテナレジストリを作成します。
 
 
-### Azure Webアプリの構成
+### Webアプリを作成します
 
-アプリの起動時に実行される構成をWebアプリに提供し、ユーザーがアプリのデータにアクセスできるようにします。
+[Azure Container Apps](https://azure.microsoft.com/ja-jp/products/container-apps)は、Microsoftが管理するコンピューターで、ソフトウェアの更新を心配することなく簡単に独自のコンテナアプリケーションを実行できる便利なサービスです。
 
-AzureポータルでWebアプリを開き、設定を変更します。
+1. Azureポータルのホームページにもう一度移動します。
+2. **[+ Create a resource]** をクリックして、以前と同じようにリソースを作成します。
 
-1.  **[settings]** の下の **[Configuration]** に移動します。
+3. **「Azure Container Apps」** (コンテナー アプリ)をクリックします。
 
-2. タブの下にある **_General settings_** を確認します。今回のサンプルアプリのバックエンドは、プログラミング言語はPython(Python 3.12)でうごかしています。
-   
-  **_Startup Command_** に以下を入力して **[Save]** ボタンをクリックします。
+4. サブスクリプションとリソースグループを選択し、以下のとおり設定してください。
+  
+    - Container Apps Name: `everyonecancode-あなたの名前`
+    - Region: `West Europe`
 
-  `gunicorn -k uvicorn.workers.UvicornWorker`
+5. **[Next: Container]** ボタンをクリックします。 
+6. クイックスタートイメージを使用するのチェックを外し、イメージソースとしてAzure Container Registryを選択します。
 
-  ![How to configure the Startup Command of the Web application](./images/light/AppServiceStartupCommand.png)
+![](./images/container-apps1.png)
 
-::: danger 重要
-ここで登録した値を保存するのを忘れると設定が反映されないのでアプリが正しく動きません。必ず保存して次に進んでください！
-:::
+
+7. 環境変数に以下の値を設定します。
+
+  | Name | Value |
+  |-|-|
+  | `CUSTOMCONNSTR_STORAGE` | `DefaultEndpointsProtocol=https;AccountName=xxx;AccountKey=xxx;EndpointSuffix=xxx` |
+  
+![](./images/container-apps2.png)
+
+8. **[バインド]** はデフォルトのままで問題ありません。
+
+9. 次に **[イングレス]** の設定をします。イングレスを有効にする、にチェックを入れ、以下のように設定します。
+  ![](./images/ingress1.png)
+  ![](./images/ingress2.png)
+
+10. 画面の下部にある **[review + create]** ボタンをクリックします。
+
+11.  表示されている情報を確認し、次の画面で **[create]** をクリックしContainer Appsを作成します。
+
+
+### Azure Container Appsの設定変更
+
+Azureポータルで作成したContainer Appsの左側メニューにある **[CORS]**  タブまでスクロールし、 「許可された配信元」に`https://<ご自身のGitHubアカウント名>.github.io` を入力します。 **[適用]**  ボタンをクリックして設定完了です。
+
+![](./images/cors.png)
 
 
 ### GitHub Actionsを使ってMilligramアプリのバックエンドのコードをAzure Webアプリにデプロイします
@@ -292,7 +275,7 @@ AzureポータルでWebアプリを開き、設定を変更します。
 
 そのために、この **「デプロイ」** と呼ばれる作業をGitHub Actionsで自動します。アプリケーションに変更を加える(たとえば、アプリケーションのタイトルを変更するなど)するたびに手動でなにかをする必要はありません。
 
-1. AzureポータルのWebアプリの左側にある **[Deployment Center]** タブに移動します。
+1. AzureポータルのAzure Container Appsの左側にある **[継続的デプロイ]** タブに移動します。
 
 2.  **[settings]** タブの下で **_source_** として **`github`** を選択し、**[authorize]** をクリックします。
 
@@ -300,7 +283,7 @@ AzureポータルでWebアプリを開き、設定を変更します。
    
 4.  **[Save]** ボタンを押すと、サービスはGitHubリポジトリにワークフローファイルを自動的に作成します。
 
-このワークフローはすぐに実行され、約2分後にはWebアプリの準備が整います。
+このワークフローはすぐに実行され、約5分後にはコンテナアプリの準備が整います。
 
 GitHubリポジトリの **[Actions]** タブから進捗を確認す​​ることもできます。緑色のアイコンは問題なく進んでいることを表しています。
 
@@ -312,13 +295,13 @@ GitHubリポジトリの **[Actions]** タブから進捗を確認す​​る�
 
 すべてをまとめる前に、バックエンドサービスが期待どおりに機能していることを確認したいと考えています。
 
-1. Azure ポータルからWeb Appsの左側の **[Overview]** タブに移動します。
+1. Azure ポータルからAzure Container Appsの左側の **[Overview]** タブに移動します。
 
-  ![App Service URL](./images/defaultdomain.png)
+![](./images/defaultdomain-ex.png)
   
-  **Default Domain** のURLの後ろに`/docs`を追加し、インタラクティブなドキュメントを使用してWebサイトをテストして、MilligramアプリケーションのAPIが動作するかどうかを確認します。
+  **アプリケーション URL** のURLの後ろに`/docs`を追加し、インタラクティブなドキュメントを使用してWebサイトをテストして、MilligramアプリケーションのAPIが動作するかどうかを確認します。
 
-  `http://everyonecancode-xxxxx.azurewebsites.net/docs`
+  `https://xxx.xxx.westeurope.azurecontainerapps.io/docs`
 
   ブラウザでは、次のように見えるはずです。**_GET/images_** エンドポイントを選択し、**[Try it Out]** をクリックして **[Execute]** をクリックします。200番の応答コードが返ってくると、正しく動いていることが確認できます。おめでとうございます！
 
@@ -353,12 +336,11 @@ GitHubリポジトリの **[Actions]** タブから進捗を確認す​​る�
 2.  **_New repository secret_** で **`VITE_IMAGE_API_URL`** と`ご自身のバックエンドのURL `を登録します。
   
 ::: warning
-あなたのURLは `https：// xxxx.azurewabsites.net/`となっているはずです。忘れてしまった人は、[「Milligramアプリが正しく実行されているかどうかを確認しよう」](#milligram%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%8F%E3%82%99%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%88%E3%82%99)の手順を見返してください。かならず最後に`/` を入れるのを忘れないようにしましょう
+あなたのURLは `https://xxx.xxx.westeurope.azurecontainerapps.io`となっているはずです。忘れてしまった人は、[「Milligramアプリが正しく実行されているかどうかを確認しよう」](#milligram%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%8F%E3%82%99%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%88%E3%82%99)の手順を見返してください。かならず最後に`/` を入れるのを忘れないようにしましょう
 :::
 
 
-  ![GitHub Secrets Create](./images/light/VITE_IMAGE_API_URL.png)
-
+  ![GitHub Secrets Create](./images/VITE_IMAGE_API_URL-ex1.png)
 
 ### フロントエンドパイプラインをもう一度実行します
 
