@@ -67,9 +67,9 @@ GitHubには、Webサイトを作成する機能 **「GitHub Pages」** およ�
 ![Enable GitHub Actions](./images/EnableGithubActions.png)
 
 
-::: tip サンプルのリポジトリ
+<!-- ::: tip サンプルのリポジトリ
 [repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)にすべてのプロジェクトのファイルと各ファイルのファイルが含まれています。
-:::
+::: -->
 
 
 ここで、**GitHub Actions** に読み取り/書き込み許可があることを確認してください。GitHubリポジトリの **[Settings]** -> **[Actions]** -> **[General]** をクリックし、**_WorkFlow Permissions_** セクションまでスクロールします。 **_read and write permissions_** オプションをクリックして、**[save]** ボタンをクリックします。

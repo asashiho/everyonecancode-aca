@@ -23,10 +23,10 @@
   ![Screenshot of how to create a resource](./images/createresource1.png)
 
    -  **Azure AI services** を選択し、**[Create]** をクリックします。
-   - サブスクリプションとリソースグループは既に設定する必要があります。ここで、リージョンは **`westeurope`** にします。また、**`Standard S0`** を選択します。
+   - サブスクリプションとリソースグループは既に設定されています。ここで、リージョンは **`West Europe`** にします。また、**`Standard S0`** を選択します。
   
   ::: danger 注意
-  今回のサンプルアプリではハードコードされているので、必ず **「westeurope」** にリソースを作成してください。
+  今回のサンプルアプリではハードコードされているので、必ず **「West Europe」** にリソースを作成してください。
   :::
 
 - リソースにグローバルで一意の名前を付けます。

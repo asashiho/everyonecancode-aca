@@ -93,6 +93,8 @@ Codespacesのエクスプローラービューで、フォルダー `frontend/sr
     </b-navbar>
 ```
 
+もし、**[Vue の拡張機能]** のインストールダイアログが表示されたら **[Install]** をクリックします。
+
 なお、GitHub CodespacesのUIにブラウザを使っている場合は、このアプリケーションのビルドツールであるViteのHMR(Hot Module Replacement)機能が原因で、ページの再読み込みが繰り返し起こる場合があります。解決するためには、`/frontend` の下にある設定ファイル`vite.config.js` と`package.json` を次の通り変更してください。なお、GitHub CodespacesのUIがVS Codeの場合、この問題はありません。
 
 参考: [Issue: add config for websocket connection](https://github.com/vitejs/vite/pull/677)

@@ -36,7 +36,7 @@
     ![Screenshot of how to create a resource](./images/resource-azure-openai.png)
 
    - サブスクリプションとリソースグループを選択します。
-   - リージョンは **`westeurope`** にします。また、**`Standard S0`**を選択します。
+   - リージョンは **`West Europe`** にします。また、**`Standard S0`**を選択します。
    - リソースにグローバルで一意の名前を付けます。
    - - **[Next]** をクリックして、ネットワークで **「インターネットを含むすべてのネットワークがこのリソースにアクセスできる」** を選択してください。
    - **[Next]** をクリックしてリソースを作成します
