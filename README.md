@@ -51,13 +51,13 @@
 
 ## ハンズオンガイド
 
-- [Day 1 - GitHub を使ってみよう](instructions/day1/GitHub/README.md)
-- [Day 1 - コードを変更してみよう](instructions/day1/ApplicationPart1/README.md)
-- [Day 1 - スマホで使えるアプリを作ろう ](instructions/day1/ApplicationPart2/README.md)
-- [Day 1 - Github Copilotを使ってより良いアプリにしよう](instructions/day1/ApplicationPart3/README.md)
-- [Day 2 - 画像の中にあるものを認識する機能を追加しよう](instructions/day2/Vision/README.md)
-- [Day 2 - 音声認識機能を追加しよう](instructions/day2/Speech/README.md)
-- [Day 2 - 生成AIとチャットができる機能を追加しよう](instructions/day2/Chat/README.md)
+- [Day 1 - GitHub を使ってみよう](instructions/ja/day1/GitHub/README.md)
+- [Day 1 - コードを変更してみよう](instructions/ja/day1/ApplicationPart1/README.md)
+- [Day 1 - スマホで使えるアプリを作ろう ](instructions/ja/day1/ApplicationPart2/README.md)
+- [Day 1 - Github Copilotを使ってより良いアプリにしよう](instructions/ja/day1/ApplicationPart3/README.md)
+- [Day 2 - 画像の中にあるものを認識する機能を追加しよう](instructions/ja/day2/Vision/README.md)
+- [Day 2 - 音声認識機能を追加しよう](instructions/ja/day2/Speech/README.md)
+- [Day 2 - 生成AIとチャットができる機能を追加しよう](instructions/ja/day2/Chat/README.md)
   
 ## Everyone can Code の目指すところ
 
