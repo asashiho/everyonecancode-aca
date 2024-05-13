@@ -31,7 +31,7 @@
 1. Azureポータルを開き、以前のチャレンジで作成したリソースグループに移動します。
    
 2. **Azure OpenAI** を検索し、新しいリソース作成します。
-   **「Azure AI services」** を選択し、**Create** をクリックして以下の値を登録します。
+   **「Azure OpenAI」** を選択し、**Create** をクリックして以下の値を登録します。
 
     ![Screenshot of how to create a resource](./images/resource-azure-openai.png)
 
@@ -48,14 +48,21 @@
 これで、Azure OpenAI Serviceのリソースが作成できたので、次は大規模言語モデルをデプロイします。
 
 1. 作成したAzure openAI リソースに移動して、**[Model deployments]** をクリックします。
-2. 次に、 **[Create new deployment]** をクリックします。ここでは、展開するOpenAIモデルを選択します。
-   
+  ![](./images/model-deploy1.png)
+
+
+2. 次に、 **[Create new deployment]** をクリックします。
+  ![](./images/model-deploy2.png)
+
+
+
+
+3. ここでは、展開するOpenAIモデルを選択します。デプロイ名に一意の名前を付けて、**[create]** をクリックします。この名前は後で使用するので、ひかえておいてください。
+
    |設定項目|値|
    |-|-|
    | モデル| **gpt-35-turbo** | 
    | モデルバージョン| **Auto-update to default** |
-
-3. デプロイ名に一意の名前を付けて、**[create]** をクリックします。この名前は後で使用するので、ひかえておいてください。
 
   ![Screenshot of Gpt turbo model deployment](./images/gpt-turbo-deployment.png)
 
@@ -92,7 +99,7 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
 
 前の課題と同様に、3つのGitHub Secretを追加します。
 
-1. AzureポータルからAzure OpenAIに作成したリソースを開きます。そして、**Keys and Endpoint**をクリックします。ここで、キーとエンドポイントをひかえます。
+1. AzureポータルからAzure OpenAIに作成したリソースを開きます。そして、**[Keys and Endpoint]**をクリックします。ここで、キーとエンドポイントをひかえます。
   
 2. 次にブラウザでGitHubのリポジトリを開きます。**[GitHub] -> [Settings] -> [Secrets] -> [Actions]** に移動し、**[New repository secret]** を追加します。
 
@@ -106,7 +113,7 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
 
 
 3. 次に、GitHubワークフローにシークレットを追加します。
-   `.github/workflows/main_milligram.yml` にあるファイルの74行目あたりにある `subscription-id` の下に次のコードスニペットを追加します。
+   `.github/workflows/main_<ご自身のWebアプリのリソース名>.yml` にあるファイルの74行目あたりにある `subscription-id` の下に次のコードスニペットを追加します。
    
 ```yaml
       - uses: azure/appservice-settings@v1

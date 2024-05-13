@@ -178,7 +178,9 @@ Azureの世界では、「リソース」はAzureが管理するエンティテ�
 
 1. Azureポータルのホームページに移動します。
 2. **[+ Create a resource]** をクリックしてリソースを作成します。
-3. **[Storage Account]** を検索し、**[Create]** ボタンをクリックします。
+3. **[Storage Account]**(日本語の場合は「ストレージ アカウント」) を検索し、**[Create]** ボタンをクリックします。
+  ![](./images/create-storage.png)
+
    + Azureポータルにログインするために使用した名前で、サブスクリプションとリソースグループを選択します。
    + Azureストレージアカウントの名前はグローバルで一意である必要があります。また、小文字と特殊文字は使用できません。
    + **`Locally-redundant storage (LRS)`** と **`Standard`** を選択してください。
@@ -202,7 +204,9 @@ Azureの世界では、「リソース」はAzureが管理するエンティテ�
 1. Azureポータルのホームページにもう一度移動します。
 2. **[+ Create a resource]** をクリックして、以前と同じようにリソースを作成します。
    
-3. **「Web Apps」** を検索し、**[Create]** をクリックします。
+3. **「Web Apps」**(日本語の場合は「Webアプリ」)  を検索し、**[Create]** をクリックします。
+![](./images/create-webapps.png)
+
 4. サブスクリプションとリソースグループを選択し、以下の画像のとおり設定してください。
   
     - Name: `everyonecancode-backend-あなたの名前`
