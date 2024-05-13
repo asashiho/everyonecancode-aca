@@ -30,7 +30,7 @@
 
 私たちの目的は、このツールを使用して、フッターをアプリケーションに追加することです。Github CopilotをCodeSpace環境に統合することにより、プロセスを開始しましょう。
 
-1. マーケットプレイスに移動し、GitHub Copilot拡張機能を検索します。
+1. マーケットプレイスに移動し、GitHub Copilot拡張機能とGitHub Copilot Chat拡張機能を検索します。
 2. **[Install]** ボタンをクリックして、環境に追加します。
 
 ![Github Copilot Installation](./images/github-copilot-installation.png)  
