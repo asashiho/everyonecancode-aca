@@ -31,7 +31,7 @@
 - Azure Web Appsを使用して、アプリケーションをクラウドで動かします
 - アプリをカスタマイズしながら、Azureの基本的な概念を理解します
 - ストレージを使用して画像とデータを保存します
-- Github Copilotを使用してAIの力を借りてコーディングをします
+- GitHub Copilotを使用してAIの力を借りてコーディングをします
 
 
 ### Day 2
@@ -54,7 +54,7 @@
 - [Day 1 - GitHub を使ってみよう](instructions/ja/day1/GitHub/README.md)
 - [Day 1 - コードを変更してみよう](instructions/ja/day1/ApplicationPart1/README.md)
 - [Day 1 - スマホで使えるアプリを作ろう ](instructions/ja/day1/ApplicationPart2/README.md)
-- [Day 1 - Github Copilotを使ってより良いアプリにしよう](instructions/ja/day1/ApplicationPart3/README.md)
+- [Day 1 - GitHub Copilotを使ってより良いアプリにしよう](instructions/ja/day1/ApplicationPart3/README.md)
 - [Day 2 - 画像の中にあるものを認識する機能を追加しよう](instructions/ja/day2/Vision/README.md)
 - [Day 2 - 音声認識機能を追加しよう](instructions/ja/day2/Speech/README.md)
 - [Day 2 - 生成AIとチャットができる機能を追加しよう](instructions/ja/day2/Chat/README.md)

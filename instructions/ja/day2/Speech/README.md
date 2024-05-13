@@ -18,7 +18,7 @@
 
 
 
-## Azure AI servicesの資格情報をGithub Secretに統合します
+## Azure AI servicesの資格情報をGitHub Secretに統合します
 
 ここでは[オブジェクト認識](../Vision/README.md)で作成したのと同じAzure AI servicesを使用します。
 

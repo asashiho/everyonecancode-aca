@@ -37,9 +37,9 @@
    ![Screenshot of Access keys in Computer Vision service](./images/copykeys.png)
 
 
-## Azure AI servicesの資格情報をGithub Secretに登録します
+## Azure AI servicesの資格情報をGitHub Secretに登録します
 
-Azure AI services を利用できるように、このリソースの情報をWebアプリと共有する必要があります。さらに2つのGithub Secretを作成し、これをアプリと共有します。
+Azure AI services を利用できるように、このリソースの情報をWebアプリと共有する必要があります。さらに2つのGitHub Secretを作成し、これをアプリと共有します。
 
 ブラウザでGitHubのリポジトリを開きます。**[GitHub] -> [Settings] -> [Secrets] -> [Actions]** に移動し、**[New repository secret]** を追加します。
 

@@ -13,7 +13,7 @@ The objective of this sprint is to setup the development environment for the pro
 3. [Setup Local Development Environment on Mac](02c%20-%20Setup%20Local%20Development%20Environment%20on%20Mac.md)
 
     > [!NOTE]
-    > if you can't setup a local development environment you can use GitHub CodeSpaces as an alternative. Follow the instructions [here](02a%20-%20Use%20GitHub%20CodeSpaces.md) 
+    > if you can't setup a local development environment you can use GitHub Codespaces as an alternative. Follow the instructions [here](02a%20-%20Use%20GitHub%20CodeSpaces.md) 
 
 <br/>
 

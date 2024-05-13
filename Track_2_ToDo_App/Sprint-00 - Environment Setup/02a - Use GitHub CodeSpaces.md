@@ -1,4 +1,4 @@
-# Using GitHub CodeSpaces
+# Using GitHub Codespaces
 ⏲️ _Est. time to complete: 10 min._ ⏲️
 
 ## Here is what you will learn 🎯
@@ -9,10 +9,13 @@ You will learn the following:
 - How to install and use extensions in a Codespace.
 
 ## Table Of Contents
-- [Introduction to GitHub Codespaces](#introduction-to-github-codespaces)
-- [Creating and Stopping a GitHub Codespace](#creating-and-stopping-a-github-codespace)
-- [Understanding the `devcontainer.json` file](#understanding-the-devcontainerjson-file)
-- [Installing and using extensions in a Codespace](#installing-and-using-extensions-in-a-codespace)
+- [Using GitHub Codespaces](#using-github-codespaces)
+  - [Here is what you will learn 🎯](#here-is-what-you-will-learn-)
+  - [Table Of Contents](#table-of-contents)
+  - [Introduction to GitHub Codespaces](#introduction-to-github-codespaces)
+  - [Creating and Stopping a GitHub Codespace](#creating-and-stopping-a-github-codespace)
+  - [Understanding the `devcontainer.json` file](#understanding-the-devcontainerjson-file)
+  - [Installing and using extensions in a Codespace](#installing-and-using-extensions-in-a-codespace)
 
 ## Introduction to GitHub Codespaces
 

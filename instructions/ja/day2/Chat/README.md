@@ -17,7 +17,7 @@
     - [参考情報](#参考情報)
   - [Azure OpenAI Service インスタンスを作成します](#azure-openai-service-インスタンスを作成します)
   - [OpenAIの大規模言語モデルのデプロイ](#openaiの大規模言語モデルのデプロイ)
-  - [Azure AI servicesの資格情報をGithub Secretに統合します](#azure-ai-servicesの資格情報をgithub-secretに統合します)
+  - [Azure AI servicesの資格情報をGitHub Secretに統合します](#azure-ai-servicesの資格情報をgithub-secretに統合します)
   - [フロントエンドとバックエンドパイプラインを再実行します](#フロントエンドとバックエンドパイプラインを再実行します)
 
 
@@ -69,7 +69,7 @@
 ![Screenshot of Gpt turbo model playground](./images/gpt-playground.png)
 
 
-## Azure AI servicesの資格情報をGithub Secretに統合します
+## Azure AI servicesの資格情報をGitHub Secretに統合します
 
 Milligramアプリケーションにチャット機能を追加するには、Azure AI servicesの資格情報を統合する必要があります。
 

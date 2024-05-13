@@ -13,7 +13,7 @@ This sprint is designed to help students get their environment setup and ready t
 
 
 > [!NOTE]
-> if you can't setup a local development environment you can use GitHub CodeSpaces as an alternative. Follow the instructions [here](/Track_2_ToDo_App/Sprint-00%20-%20Environment%20Setup/02a%20-%20Use%20GitHub%20CodeSpaces.md)
+> if you can't setup a local development environment you can use GitHub Codespaces as an alternative. Follow the instructions [here](/Track_2_ToDo_App/Sprint-00%20-%20Environment%20Setup/02a%20-%20Use%20GitHub%20CodeSpaces.md)
 
 ## Sprint 1 - Basic Application
 ⏲️ _Est. time to complete: 30 min._ ⏲️
