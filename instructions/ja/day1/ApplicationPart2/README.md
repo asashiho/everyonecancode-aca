@@ -147,14 +147,14 @@ Milligramアプリケーションは、あなたがよく知っているかも�
 
 アプリケーションバックエンドは、アップロードされた写真を受け取り、それらを保存し、必要に応じて返します。
 
-今回は、ファイルを保存するために、**「[Azure Storage Account](https://learn.microsoft.com/ja-jp/azure/storage/common/storage-account-overview)」** を使用し、アプリケーションロジックを実行するには、 **「[Azure Web Apps](https://azure.microsoft.com/ja-jp/products/app-service/web)」** を使用します。
+今回は、ファイルを保存するために、**[Azure Storage Account](https://learn.microsoft.com/ja-jp/azure/storage/common/storage-account-overview)** を使用し、アプリケーションロジックを実行するには、 **[Azure Web Apps](https://azure.microsoft.com/ja-jp/products/app-service/web)** を使用します。
 
 
 ### Azureにログインします
 
 ブラウザで[portal.azure.com](https://ms.portal.azure.com/?l=en.en-us#home)にアクセスしてください。
 
-コーチから提供された **「Azureアカウント」** でログインします。わからない場合は遠慮なく質問してください。
+コーチから提供された **Azureアカウント** でログインします。わからない場合は遠慮なく質問してください。
 
 ![Log In Azure](./images/light/LogInAzure.png)
 
@@ -181,7 +181,7 @@ Azureの世界では、「リソース」はAzureが管理するエンティテ�
 3. **[Storage Account]** を検索し、**[Create]** ボタンをクリックします。
    + Azureポータルにログインするために使用した名前で、サブスクリプションとリソースグループを選択します。
    + Azureストレージアカウントの名前はグローバルで一意である必要があります。また、小文字と特殊文字は使用できません。
-   + **「`Locally-redundant storage (LRS)`」** と **「`Standard`」** を選択してください。
+   + **`Locally-redundant storage (LRS)`** と **`Standard`** を選択してください。
     ![Storage](./images/light/BackendStorage1.png)
 
 4  **[review]** をクリックし、その後 **[create]** をクリックしてストレージアカウントを作成します。
@@ -189,11 +189,11 @@ Azureの世界では、「リソース」はAzureが管理するエンティテ�
 5. ストレージアカウントが作成されたら、**[Go to resource]** ボタンをクリックして、リソースに移動します。
 
 6. これで、ストレージアカウントが表示されます。次に画像を入れるためのコンテナを作ります。左側の **[Containers]** を選択します。
-7. **[new container]** ボタンをクリックして、 **「_images_」** という名前のコンテナを作成します。その他はデフォルトのままで問題ありません。
+7. **[new container]** ボタンをクリックして、 **`images`** という名前のコンテナを作成します。その他はデフォルトのままで問題ありません。
 
 ![](images/blob-container.png)
 
-ここで作成した **「_images_」**  というコンテナは、Milligramアプリケーションからアップロードされた画像が保存される場所です。
+ここで作成した **`images`**  というコンテナは、Milligramアプリケーションからアップロードされた画像が保存される場所です。
 
 ### Webアプリを作成します
 
@@ -234,10 +234,10 @@ Azureの世界では、「リソース」はAzureが管理するエンティテ�
 
 1. ストレージサービスの場所とキー情報を確認します。ストレージアカウントを検索することで作成したリソースを表示します。
    
-   ストレージにアクセスするためのキーは **_Access Keys_**、 接続文字列は **_Connection String_** で確認できます。値を見るときは **[ShowKeys👀]** ボタンをおすと、その値をクリップボードにコピーできます。
+   ストレージにアクセスするためのキーは **`Access Keys`**、 接続文字列は **`Connection String`** で確認できます。値を見るときは **[ShowKeys👀]** ボタンをおすと、その値をクリップボードにコピーできます。
 ![Screenshot of Access key page in Azure portal](./images/light/SecretAccessKeys.png)
 
-1. Webアプリに戻って **[Environment variables]** タブを開き、 **[New connection string]** をクリックして、次のとおり新しい接続文字列を作成します。接続文字列は「_DefaultEndpointsProtocol....._」から始まる文字列です。ここをご自身の値に置き換えてください。
+1. Webアプリに戻って **[Environment variables]** タブを開き、 **[New connection string]** をクリックして、次のとおり新しい接続文字列を作成します。接続文字列は `DefaultEndpointsProtocol.....` から始まる文字列です。ここをご自身の値に置き換えてください。
    
   | Connection string | Type | Value |
   |-|-|-|
@@ -289,9 +289,9 @@ AzureポータルでWebアプリを開き、設定を変更します。
 
 1. AzureポータルのWebアプリの左側にある **[Deployment Center]** タブに移動します。
 
-2.  **[settings]** タブの下で **_source_** として **_github_** を選択し、**[authorize]** をクリックします。
+2.  **[settings]** タブの下で **_source_** として **`github`** を選択し、**[authorize]** をクリックします。
 
-3.  **_organization_** でGitHubのアカウント名を選択し、**_repository_** で`「everyonecancode」`と`「main」`ブランチを選択します。
+3.  **_organization_** でGitHubのアカウント名を選択し、**_repository_** で`everyonecancode`と`main`ブランチを選択します。
    
 4.  **[Save]** ボタンを押すと、サービスはGitHubリポジトリにワークフローファイルを自動的に作成します。
 
@@ -311,11 +311,11 @@ GitHubリポジトリの **[Actions]** タブから進捗を確認す​​る�
 
   ![App Service URL](./images/defaultdomain.png)
   
-  **Default Domain** のURLの後ろに「/docs」を追加し、インタラクティブなドキュメントを使用してWebサイトをテストして、MilligramアプリケーションのAPIが動作するかどうかを確認します。
+  **Default Domain** のURLの後ろに`/docs`を追加し、インタラクティブなドキュメントを使用してWebサイトをテストして、MilligramアプリケーションのAPIが動作するかどうかを確認します。
 
   `http://everyonecancode-xxxxx.azurewebsites.net/docs`
 
-  ブラウザでは、次のように見えるはずです。**_GET/images_** エンドポイントを選択し、**「`Try it Out`」** をクリックして **`Execute`** をクリックします。200番の応答コードが返ってくると、正しく動いていることが確認できます。おめでとうございます！
+  ブラウザでは、次のように見えるはずです。**_GET/images_** エンドポイントを選択し、**[Try it Out]** をクリックして **[Execute]** をクリックします。200番の応答コードが返ってくると、正しく動いていることが確認できます。おめでとうございます！
 
   ![Test API Page1](./images/TestAPIGetImages-ex1.png)
   ![Test API Page2](./images/TestAPIGetImages-ex2.png)
@@ -343,7 +343,7 @@ GitHubリポジトリの **[Actions]** タブから進捗を確認す​​る�
 
 ここで、**GitHub Secrets** というGitHubの機能を使用します。ここでは、フロントエンドアプリから呼び出すバックエンドアプリのURLをシークレットとして登録します。
 
-1. ブラウザからGitHubのリポジトリページを開きます。 **[settings]** を選択し、**[secrets and variables]** -> **[actions]** に移動します。
+1. ブラウザからGitHubのリポジトリページを開きます。 **[settings]** を選択し、 **[secrets and variables]** -> **[actions]** に移動します。
  
 2.  **_New repository secret_** で **`VITE_IMAGE_API_URL`** と`ご自身のバックエンドのURL `を登録します。
   

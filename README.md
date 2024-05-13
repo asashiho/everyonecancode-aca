@@ -16,9 +16,13 @@
 
 このワークショップでは、次の2つを試すことができます
 
-1. **ソーシャルメディアアプリの作成**  - クールなソーシャルメディアアプリケーションを作りたい場合は、**[Click here to take a look at the sample app](https://github.com/microsoft/everyonecancode)** にアクセスしてください！独自のアプリを展開および構成する方法を学びます。
+1. **ソーシャルメディアアプリの作成**  
+   
+  クールなソーシャルメディアアプリケーションを作りたい場合は、**[Click here to take a look at the sample app](https://github.com/microsoft/everyonecancode)** にアクセスしてください！独自のアプリを展開および構成する方法を学びます。
 
-2.**TODOアプリを構築してコーディングを学ぶ**  - コーディングの基本を学びたいときは、**[Click here to take a look at the sample app](https://github.com/microsoft/everyonecancode)** にアクセスしてください！Todoアプリを構築することにより、コーディングの基本を学ぶことができます。
+2. **TODOアプリを構築してコーディングを学ぶ**
+
+  コーディングの基本を学びたいときは、**[Click here to take a look at the sample app](https://github.com/microsoft/everyonecancode)** にアクセスしてください！Todoアプリを構築することにより、コーディングの基本を学ぶことができます。
 
 
 どちらを選んでも、コーディングの冒険に参加できます。さぁ始めましょう！🚀
@@ -31,13 +35,13 @@
 - Azure Web Appsを使用して、アプリケーションをクラウドで動かします
 - アプリをカスタマイズしながら、Azureの基本的な概念を理解します
 - ストレージを使用して画像とデータを保存します
-- GitHub Copilotを使用してAIの力を借りてコーディングをします
+- GitHub Copilotを使用しAIの力を借りてコーディングをします
 
 
 ### Day 2
-- 学習済みの機械学習モデルを使用して、画像認識や音声認識を行いアプリに機能を追加します。
-- Azure OpenAIを使用して、アプリケーションにチャットボットを追加します。
-- トレーナーは、オンラインコースの紹介とテクノロジーをより深く掘り下げます。
+- 学習済みの機械学習モデルを使用して、アプリに画像認識や音声認識の機能を追加します。
+- Azure OpenAI Service を使用して、アプリケーションに生成AIチャットボットを追加します。
+- コーチは、オンラインコースの紹介とテクノロジーをより深く掘り下げます。
 
 さらに、このコースを受講したみなさんは、 [AI Developer College](https://github.com/azuredevcollege/aidevcollege) または[Azure Developer College](https://github.com/azuredevcollege/trainingdays)に参加できます。
 

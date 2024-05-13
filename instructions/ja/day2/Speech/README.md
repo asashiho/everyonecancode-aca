@@ -59,7 +59,7 @@
 アプリになにかを喋ってみて、その内容が正しく認識されているかテキストで確認してみましょう。
 その精度に驚かれるかもしれません:heart_eyes:
 
-なお、デフォルトでは、ドイツ語と英語のみに対応しています。言語を変更したい場合は、**`Frontend` -> `src` -> `views` -> `Microphone.vue`** を変更します。
+なお、デフォルトでは、ドイツ語と英語のみに対応しています。言語を変更したい場合は、**`frontend` -> `src` -> `views` -> `Microphone.vue`** を変更します。
 
 例えば日本語を追加する場合は、以下のように変更します。
 
@@ -99,5 +99,4 @@
 また、興味がある人はMicrosoftのキャリアサイトもチェックしてください。
 
 - [Microsoft Aspire Program for early in career hires](https://www.microsoft.com/en-ie/earlycareers/aspire-program)
-- Internships at MS
 - [Professional Careers at Microsoft](https://careers.microsoft.com/)

@@ -36,7 +36,7 @@
     ![Screenshot of how to create a resource](./images/resource-azure-openai.png)
 
    - サブスクリプションとリソースグループを選択します。
-   - リージョンは **westeurope** にします。また、**Standard S0**を選択します。
+   - リージョンは **`westeurope`** にします。また、**`Standard S0`**を選択します。
    - リソースにグローバルで一意の名前を付けます。
    - - **[Next]** をクリックして、ネットワークで **「インターネットを含むすべてのネットワークがこのリソースにアクセスできる」** を選択してください。
    - **[Next]** をクリックしてリソースを作成します
@@ -106,7 +106,7 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
 
 
 3. 次に、GitHubワークフローにシークレットを追加します。
-   **.github/workflows/main_milligram.yml** にあるファイルの74行目あたりにある `subscription-id` の下に次のコードスニペットを追加します。
+   `.github/workflows/main_milligram.yml` にあるファイルの74行目あたりにある `subscription-id` の下に次のコードスニペットを追加します。
    
 ```yaml
       - uses: azure/appservice-settings@v1
@@ -132,4 +132,6 @@ Azureに戻り、MilligramのWebアプリをもう一度開きます。
 
 ![](./images/aoai-chat.png)
 
-フロントエンドアプリケーションには、アシスタントとチャットできるチャットボタンが表示されます。チャットのアシスタントは、Azure OpenAI でデプロイした大規模言語モデルが動いています。ぜひ最新の生成AIとのチャットを楽しんでください:robot:
+フロントエンドアプリケーションには、アシスタントとチャットできるチャットボタンが表示されます。チャットのアシスタントは、Azure OpenAI でデプロイした大規模言語モデルが動いています。
+
+ぜひ最新の生成AIとのチャットを楽しんでください:robot:

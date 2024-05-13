@@ -23,17 +23,17 @@
   ![Screenshot of how to create a resource](./images/createresource1.png)
 
    -  **Azure AI services** を選択し、**[Create]** をクリックします。
-   - サブスクリプションとリソースグループは既に設定する必要があります。ここで、リージョンは **「westeurope」** にします。また、**「Standard S0」** を選択します。
+   - サブスクリプションとリソースグループは既に設定する必要があります。ここで、リージョンは **`westeurope`** にします。また、**`Standard S0`** を選択します。
   
   ::: danger 注意
-  今回のサンプルアプリではハードコードされているので、必ず **westeurope** にリソースを作成してください。
+  今回のサンプルアプリではハードコードされているので、必ず **「westeurope」** にリソースを作成してください。
   :::
 
 - リソースにグローバルで一意の名前を付けます。
 - **[Review + create]** をクリックし、内容に誤りが無いかを確認したうえで、**[Create]** をクリックしてリソースを作成します。
   ![Screenshot of Azure Portal create page for vision service](./images/createvisionresource.png)
 
-1. リソースが作成された後、**[Keys and Endpoint]** をクリックし、  **`Key`** と **`Endpoint`** をコピーします。これらの値はあとで**GitHub Secrets** に保存するために必要です。値をひかえておいてください。
+1. リソースが作成された後、**[Keys and Endpoint]** をクリックし、  **`Key`** と **`Endpoint`** の値をコピーします。これらの値はあとで**GitHub Secrets** に保存するために必要です。値をひかえておいてください。
    ![Screenshot of Access keys in Computer Vision service](./images/copykeys.png)
 
 
