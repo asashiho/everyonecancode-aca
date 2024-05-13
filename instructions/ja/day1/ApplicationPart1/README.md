@@ -93,6 +93,61 @@ Codespacesのエクスプローラービューで、フォルダー `frontend/sr
     </b-navbar>
 ```
 
+なお、GitHub Codespaces でHMR(Hot Module Replacement)を使用して確認するためには、[Issue: add config for websocket connection](https://github.com/vitejs/vite/pull/677)に従って、Viteの設定ファイル`vite.config.js` と`package.json`を次の通り変更してください。
+
++ `vite.config.js` の変更箇所
+
+```js
+import { defineConfig } from "vite";
+...
+
+const codespaceName = process.env['CODESPACE_NAME'];
+const codespaceDomain = process.env['GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN'];
+const hmrPort = 5173;
+
+const hmrRemoteHost = codespaceName ? `${codespaceName}-${hmrPort}.${codespaceDomain}` : 'localhost';
+const hmrRemotePort = codespaceName ? 443 : hmrPort;
+const hmrRemoteProtocol = codespaceName ? 'wss' : 'ws';
+
+....
+export default defineConfig({
+  server: {
+    hmr: {
+        protocol: hmrRemoteProtocol,
+        host: hmrRemoteHost,
+        port: hmrPort,
+        clientPort: hmrRemotePort
+    }
+  },
+  plugins: [vue()],
+  resolve: {
+  ....
+  },
+});
+```
+
++ `package.json` の変更箇所
+
+```json
+{
+  "name": "milligram-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    ....
+  },
+  "dependencies": {
+  ....
+  },
+  "devDependencies": {
+  ....
+  }
+}
+```
+
+もし不明なことがあれば、コーチに質問してください。
+
 
 ## CodeSpacesで変更した内容を確認します
 
