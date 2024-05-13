@@ -16,8 +16,8 @@
   - [目次](#目次)
     - [参考情報](#参考情報)
   - [Azure OpenAI Service インスタンスを作成します](#azure-openai-service-インスタンスを作成します)
-  - [OpenAIの大規模言語モデルのデプロイ](#openaiの大規模言語モデルのデプロイ)
-  - [Azure AI servicesの資格情報をGitHub Secretに統合します](#azure-ai-servicesの資格情報をgithub-secretに統合します)
+  - [Azure OpenAIの大規模言語モデルのデプロイ](#azure-openaiの大規模言語モデルのデプロイ)
+  - [Azure OpenAI の資格情報をGitHub Secretに統合します](#azure-openai-の資格情報をgithub-secretに統合します)
   - [フロントエンドとバックエンドパイプラインを再実行します](#フロントエンドとバックエンドパイプラインを再実行します)
 
 
@@ -44,7 +44,7 @@
     ![Screenshot of Azure Portal create page for openAI Azure, networking](./images/resource-azure-openai-network.png)
 
 
-## OpenAIの大規模言語モデルのデプロイ
+## Azure OpenAIの大規模言語モデルのデプロイ
 これで、Azure OpenAI Serviceのリソースが作成できたので、次は大規模言語モデルをデプロイします。
 
 1. 作成したAzure openAI リソースに移動して、**[Model deployments]** をクリックします。
@@ -76,9 +76,9 @@
 ![Screenshot of Gpt turbo model playground](./images/gpt-playground.png)
 
 
-## Azure AI servicesの資格情報をGitHub Secretに統合します
+## Azure OpenAI の資格情報をGitHub Secretに統合します
 
-Milligramアプリケーションにチャット機能を追加するには、Azure AI servicesの資格情報を統合する必要があります。
+Milligramアプリケーションにチャット機能を追加するには、Azure OpenAI の資格情報を統合する必要があります。
 
 <!-- このためには、2つのオプションがあります。
 + オプション1: Azure WebAppsにキーを追加
