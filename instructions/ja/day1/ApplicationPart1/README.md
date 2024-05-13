@@ -93,9 +93,11 @@ Codespacesのエクスプローラービューで、フォルダー `frontend/sr
     </b-navbar>
 ```
 
-なお、GitHub Codespaces でHMR(Hot Module Replacement)を使用して確認するためには、[Issue: add config for websocket connection](https://github.com/vitejs/vite/pull/677)に従って、Viteの設定ファイル`vite.config.js` と`package.json`を次の通り変更してください。
+なお、GitHub CodespacesのUIにブラウザを使っている場合は、このアプリケーションのビルドツールであるViteのHMR(Hot Module Replacement)機能が原因で、ページの再読み込みが繰り返し起こる場合があります。解決するためには、`/frontend` の下にある設定ファイル`vite.config.js` と`package.json` を次の通り変更してください。なお、GitHub CodespacesのUIがVS Codeの場合、この問題はありません。
 
-+ `vite.config.js` の変更箇所
+参考: [Issue: add config for websocket connection](https://github.com/vitejs/vite/pull/677)
+
++ `/frontend/vite.config.js` の変更箇所
 
 ```js
 import { defineConfig } from "vite";
@@ -126,7 +128,7 @@ export default defineConfig({
 });
 ```
 
-+ `package.json` の変更箇所
++ `/frontend/package.json` の変更箇所
 
 ```json
 {
