@@ -1,10 +1,10 @@
 title: Everyone Can Code
 patterns: ["**/*.md", "!**/node_modules", "!templates/**", "!frontend/**", "!Track_2_ToDo_App/**"]
-base: /everyonecancode/instructions/
+base: /everyonecancode-aca/instructions/
 themeConfig:
     locales:
       '/':
-        repo: "asashiho/everyonecancode"
+        repo: "asashiho/everyonecancode-aca"
         editLinks: true
         sidebar:
           [
@@ -18,7 +18,7 @@ themeConfig:
             "./instructions/ja/day2/Chat/",
           ]
       '/en/':
-        repo: "microsoft/everyonecancode"
+        repo: "microsoft/everyonecancode-aca"
         editLinks: true
         sidebar:
           [
